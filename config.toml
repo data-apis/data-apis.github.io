@@ -4,6 +4,7 @@ title = "Consortium for Python Data API Standards"
 theme = "kube"
 description = "The purpose of the Consortium is to develop API standards for common Python data structures for scientific, data science and machine learning users and applications - using a combination of design discussions, requirements engineering and data-driven approaches."
 Paginate = 4
+pygmentsUseClasses = true
 
 [Params]
   RSSLink = "/index.xml"
