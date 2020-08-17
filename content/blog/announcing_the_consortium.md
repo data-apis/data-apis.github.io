@@ -266,7 +266,7 @@ _Example of the usage statistics and synthesized API for `numpy.sum`._
 
 ## Who is involved?
 
-Quansight Labs started this initiative to tackle the problem of
+[Quansight Labs](https://labs.quansight.org/) started this initiative to tackle the problem of
 fragmentation of data structures. In discussions with potential sponsors and
 community members, it evolved from a development-focused effort to the
 current API standardization approach. Quansight Labs is a public benefit
@@ -301,8 +301,6 @@ _next months - we're still at the start of this endeavour._
 Here is an approximate timeline of what we hope to do over the next couple of months:
 
 - today: announcement blog post and tooling and governance repositories made public
-- next week: first public conference call
-- Sep 1: publish a website for the Consortium at data-apis.org
 - Sep 15: publish the array API RFC and start community review
 - Nov 15: publish the dataframe API RFC and start community review
 
