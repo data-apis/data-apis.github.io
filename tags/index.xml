@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Consortium for Python Data API Standards</title>
+    <link>https://data-apis.org/tags/</link>
+    <description>Recent content in Tags on Consortium for Python Data API Standards</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 16 Aug 2020 22:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://data-apis.org/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>APIs</title>
+      <link>https://data-apis.org/tags/apis/</link>
+      <pubDate>Sun, 16 Aug 2020 22:00:00 +0000</pubDate>
+      
+      <guid>https://data-apis.org/tags/apis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>arrays</title>
+      <link>https://data-apis.org/tags/arrays/</link>
+      <pubDate>Sun, 16 Aug 2020 22:00:00 +0000</pubDate>
+      
+      <guid>https://data-apis.org/tags/arrays/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>community</title>
+      <link>https://data-apis.org/tags/community/</link>
+      <pubDate>Sun, 16 Aug 2020 22:00:00 +0000</pubDate>
+      
+      <guid>https://data-apis.org/tags/community/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>consortium</title>
+      <link>https://data-apis.org/tags/consortium/</link>
+      <pubDate>Sun, 16 Aug 2020 22:00:00 +0000</pubDate>
+      
+      <guid>https://data-apis.org/tags/consortium/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dataframes</title>
+      <link>https://data-apis.org/tags/dataframes/</link>
+      <pubDate>Sun, 16 Aug 2020 22:00:00 +0000</pubDate>
+      
+      <guid>https://data-apis.org/tags/dataframes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>standard</title>
+      <link>https://data-apis.org/tags/standard/</link>
+      <pubDate>Sun, 16 Aug 2020 22:00:00 +0000</pubDate>
+      
+      <guid>https://data-apis.org/tags/standard/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

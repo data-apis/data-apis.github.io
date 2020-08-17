@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta name="generator" content="Hugo 0.74.3" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Announcing the Consortium for Python Data API Standards </title>
+
+  
+  <meta name="description" content="An initiative to develop API standards for n-dimensional arrays and dataframes"> 
+  
+  
+  
+  
+  
+
+  
+
+  <meta name="author" content="Ralf Gommers">
+
+
+  <meta property="og:title" content="Announcing the Consortium for Python Data API Standards" />
+<meta property="og:description" content="An initiative to develop API standards for n-dimensional arrays and dataframes" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://data-apis.org/blog/announcing_the_consortium/" />
+<meta property="article:published_time" content="2020-08-16T22:00:00+00:00" />
+<meta property="article:modified_time" content="2020-08-16T22:00:00+00:00" />
+
+  
+
+
+
+
+  
+  
+  
+  
+  
+
+  <link rel="canonical" href="https://data-apis.org/blog/announcing_the_consortium/">  
+
+  <link rel="shortcut icon" type="image/png" href="data:image/png;base64,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RvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3Eld+D/AfhEhmLqHBsfAAAAAElFTkSuQmCC">
+
+
+  <link href="/css/font.css" rel="stylesheet" type="text/css">
+  <link href="/css/kube.min.css" rel="stylesheet" type="text/css">
+  <link href="/css/kube.legenda.css" rel="stylesheet" type="text/css">
+  <link href="/css/highlight.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/default.min.css">
+  <link href="/css/master.css" rel="stylesheet" type="text/css">
+  <link href="/css/kube.demo.css" rel="stylesheet" type="text/css">
+
+ <link href="/css/custom.css" rel="stylesheet" type="text/css">
+
+  <script src="/js/jquery-2.1.4.min.js" type="text/javascript">
+  </script>
+
+  <script type="text/javascript" src="/js/tocbot.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+</head>
+
+
+<body class="page-kube">
+  <header> <div class="show-sm">
+    <div id="nav-toggle-box">
+      <div id="nav-toggle-brand">
+        <a href="/">Consortium for Python Data API Standards</a>
+      </div><a data-component="toggleme" data-target="#top" href="#" id="nav-toggle"><i class="kube-menu"></i></a>
+    </div>
+  </div>
+  <div class="hide-sm" id="top">
+    <div id="top-brand">
+      <a href="/" title="home">Consortium for Python Data API Standards</a>
+    </div>
+    <nav id="top-nav-main">
+      <ul>
+       
+       
+    <li><a href="/blog/" >Blog</a></li>
+    
+      </ul>
+    </nav>
+    <nav id="top-nav-extra"> 
+      <ul>
+          
+      </ul>
+    </nav>
+  </div>
+ </header>
+  <main>
+<div class="push-center" itemscope itemtype="http://schema.org/BlogPosting">
+    <meta itemprop="name" content="Announcing the Consortium for Python Data API Standards">
+<meta itemprop="description" content="An initiative to develop API standards for n-dimensional arrays and dataframes">
+<meta itemprop="datePublished" content="2020-08-16T22:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-08-16T22:00:00+00:00" />
+<meta itemprop="wordCount" content="2258">
+
+
+
+<meta itemprop="keywords" content="APIs,standard,consortium,arrays,dataframes,community," />
+
+<div id="hero">
+    <h1 itemprop="headline">  Announcing the Consortium for Python Data API Standards</h1>
+    
+<blockquote itemprop="description">An initiative to develop API standards for n-dimensional arrays and dataframes</blockquote>
+
+<time class="post-time"><span class="icon">
+  <i class="fa fa-clock-o" aria-hidden="true"></i>
+</span>
+<span>11 minute read</span>
+<span class="icon">
+ <i class="fa fa-pencil" aria-hidden="true"></i>
+</span>
+
+  Published: <time datetime="2020-08-16T22:00:00&#43;00:00">16 Aug, 2020</time>
+
+</time>
+</div>
+<div id="post-box">
+<div id="post" itemprop="articleBody">
+    
+    <p>Over the past few years, Python has exploded in popularity for data science,
+machine learning, deep learning and numerical computing. New frameworks
+pushing forward the state of the art in these fields are appearing every
+year. One unintended consequence of all this activity and creativity has been
+fragmentation in the fundamental building blocks - multidimensional array
+(tensor) and dataframe libraries - that underpin the whole Python data
+ecosystem. For example, arrays are fragmented between Tensorflow, PyTorch,
+NumPy, CuPy, MXNet, Xarray, Dask, and others. Dataframes are fragmented
+between Pandas, PySpark, cuDF, Vaex, Modin, Dask, Ibis, Apache Arrow, and
+more. This fragmentation comes with significant costs, from whole libraries
+being reimplemented for a different array or dataframe library to end users
+having to re-learn APIs and best practices when they move from one framework
+to another.</p>
+<p><img src="/images/ecosystem_fragmentation.png" alt="Ecosystem growing up in silos"></p>
+<p>Today, we are announcing the Consortium for Python Data API Standards, which
+aims to tackle this fragmentation by developing API standards for arrays
+(a.k.a. tensors) and dataframes. We aim to grow this Consortium into an
+organization where cross-project and cross-ecosystem alignment on APIs, data
+exchange mechanisms and other such topics happens. These topics require
+coordination and communication to a much larger extent than they require
+technical innovation. We aim to facilitate the former, while leaving the
+innovating to current and future individual libraries.</p>
+<h2 id="bootstrapping-an-organization-and-involving-the-wider-community">Bootstrapping an organization and involving the wider community</h2>
+<p>The goal is ambitious, and there are obvious hurdles, such as answering
+questions like &ldquo;what is the impact of a technical decision on each library?&rdquo;.
+There&rsquo;s a significant amount of engineering and technical writing to do to
+create overviews and data that can be used to answer such questions. This
+requires dedicated time, and hence funding, in addition to bringing
+maintainers of libraries together to provide input and assess those overviews
+and data. These factors motivated the following approach to bootstrapping the
+Consortium:</p>
+<ol>
+<li>Assemble a consortium of people from interested companies (who help fund
+the required engineering and technical writing time) and key community
+contributors.</li>
+<li>Form a working group which meets weekly for an hour, sets the high-level
+goals, requirements, and user stories, and makes initial decisions.</li>
+<li>Several engineers with enough bandwidth will do the heavy lifting on
+building the required tooling, and preparing the data and draft docs
+needed by the working group. Iterate as needed based on feedback from the
+working group.</li>
+<li>Once drafts of an API standard have a concrete outline, request input from
+a broader group of array and dataframe library maintainers.
+<!-- raw HTML omitted -->_This is where we are today._<!-- raw HTML omitted --></li>
+<li>Once tooling or drafts of the API standards get mature enough for wider review,
+release them as Request for Comments (RFC) and have a public review
+process. Iterate again as needed.</li>
+<li>Once there&rsquo;s enough buy-in for the RFCs, and it&rsquo;s clear projects are able
+and willing to adopt the proposed APIs, publish a 1.0 version of the
+standard.</li>
+</ol>
+<p>Such a gradual RFC process is a bit of an experiment. Community projects
+like NumPy and Pandas aren&rsquo;t used to this; however, it&rsquo;s similar to successful
+models in other communities (e.g. the Open Geospatial Consortium, or C++
+standardization) and we think the breadth of projects involved and complexity
+of the challenge makes this the most promising and likely to succeed approach.
+The approach will certainly evolve over time though, based on experience and
+feedback from the many stakeholders.</p>
+<p><img src="/images/API_standard_RFC_review_diagram.png" alt="API standard RFC development and community review"></p>
+<p>There are other, synergistic activities happening in the ecosystem that are
+relevant for this Consortium, that individual members are contributing to,
+such as the work on
+<a href="https://github.com/numpy/archive/blob/master/other_meetings/2020-04-21-array-protocols_discussion_and_notes.md">developing NumPy array protocols</a>,
+and the  <code>__dataframe__</code>
+<a href="https://github.com/wesm/dataframe-protocol">data interchange protocol design</a>.
+The section in the <code>__array_module__</code> NEP on <a href="https://numpy.org/neps/nep-0037-array-module.html#requesting-restricted-subsets-of-numpy-s-api">&ldquo;restricted subsets of NumPy&rsquo;s API&rdquo;</a>
+gives an outline for how the API standard we&rsquo;re developing can be adopted.
+The <code>__dataframe__</code> protocol attempts to solve a small, well-defined problem
+that is a sub-problem of the one a full dataframe API standard would solve.</p>
+<h2 id="an-api-standard---what-do-we-mean-by-that">An API standard - what do we mean by that?</h2>
+<p>When we start talking about an &ldquo;API standard&rdquo; or a formal specification, it&rsquo;s
+important to start by explaining both why we need it and what &ldquo;API standard&rdquo;
+means. &ldquo;Standard&rdquo; is a loaded word, and &ldquo;standardization&rdquo; is a process that,
+when done right, can have a large impact but may also evoke past experiences
+that weren&rsquo;t always productive.</p>
+<p>We can look at an API in multiple levels of detail:</p>
+<ol>
+<li>Which functions, classes, class methods and other objects are in it.</li>
+<li>What is the signature of each object.</li>
+<li>What are the semantics of each object.</li>
+</ol>
+<p>When talking about <em>compatibility</em> between libraries, e.g. &ldquo;the Pandas, Dask
+and Vaex <code>groupby</code> methods are compatible&rdquo;, we imply that the respective
+dataframe objects all have a <code>groupby</code> method with the same signature and the
+same semantics, so they can be used interchangeably.</p>
+<p>Currently, array and dataframe libraries all have similar APIs, but with
+enough differences that using them interchangeably isn&rsquo;t really possible.
+Here is a concrete example for a relatively simple function, <code>mean</code>, for
+arrays:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">numpy</span><span class="p">:</span>         <span class="n">mean</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=&lt;</span><span class="n">no</span> <span class="n">value</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">dask</span><span class="o">.</span><span class="n">array</span><span class="p">:</span>    <span class="n">mean</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=&lt;</span><span class="n">no</span> <span class="n">value</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">cupy</span><span class="p">:</span>          <span class="n">mean</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="p">:</span>     <span class="n">mean</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">mxnet</span><span class="o">.</span><span class="n">np</span><span class="p">:</span>      <span class="n">mean</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">sparse</span><span class="p">:</span>        <span class="n">s</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">torch</span><span class="p">:</span>         <span class="n">mean</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">keepdim</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">tensorflow</span><span class="p">:</span>    <span class="n">reduce_mean</span><span class="p">(</span><span class="n">input_tensor</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>   
+                           <span class="n">reduction_indices</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">keep_dims</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+</code></pre></div><p>We see that:</p>
+<ul>
+<li>All libraries provide this functionality in a function called <code>mean</code>,
+except (1) Tensorflow calls it <code>reduce_mean</code> and (2) PyData Sparse has a
+<code>mean</code> method instead of a function (it does work with <code>np.mean</code> though via
+<a href="https://numpy.org/devdocs/reference/arrays.classes.html#special-attributes-and-methods">array protocols</a>).</li>
+<li>NumPy, Dask, CuPy, JAX and MXNet have compatible signatures (except the
+<code>&lt;no_value&gt;</code> default for <code>keepdims</code>, which really means <code>False</code> but with
+different behavior for array subclasses).</li>
+<li>The semantics are harder to inspect, but will also have differences. For
+example, MXNet documents: <em>This function differs from the original <code>numpy.mean</code>
+in the following way(s): -only ndarray is accepted as valid input, python
+iterables or scalar is not supported - default data type for integer input is
+<code>float32</code></em>.</li>
+</ul>
+<p>An API standard will specify function presence with signature, and semantics, e.g.:</p>
+<ul>
+<li><code>mean(a, axis=None, dtype=None, out=None, keepdims=False)</code></li>
+<li>Computes the arithmetic mean along the specified axis.</li>
+<li>Meaning and detailed behavior of each keyword is explained.</li>
+<li>Semantics, including for corner cases (e.g. <code>nan</code>, <code>inf</code>, empty arrays, and
+more) are given by a reference test suite.</li>
+</ul>
+<p>The semantics of a function is a large topic, so the <em>scope</em> of what is
+specified must be very clear. For example (this may be specified separately,
+as it will be common between many functions):</p>
+<ul>
+<li>Only array input is in scope, functions may or may not accept lists, tuples
+or other object.</li>
+<li>Dtypes covered are <code>int32</code>, <code>int64</code>, <code>float16</code>, <code>float32</code>, <code>float64</code>;
+extended precision floating point and complex dtypes, datetime and custom
+dtypes are out of scope.</li>
+<li>Default dtype may be either <code>float32</code> or <code>float64</code>; this is a consistent
+library-wide choice (rationale: for deep learning <code>float32</code> is the typical
+default, for general numerical computing <code>float64</code> is the default).</li>
+<li>Expected results when the input contains <code>nan</code> or <code>inf</code> is in scope,
+behavior may vary slightly (e.g. warnings are produced) depending on
+implementation details.</li>
+</ul>
+<p><em>Please note: all the above is meant to sketch what an &ldquo;API standard&rdquo; means, the concrete signatures, semantics and scope may and likely will change</em>.</p>
+<h2 id="approach-to-building-up-the-api-standards">Approach to building up the API standards</h2>
+<p>The approach we&rsquo;re taking includes a combination of design discussions,
+requirements engineering and data-driven decision making.</p>
+<h3 id="start-from-use-cases-and-requirements">Start from use cases and requirements</h3>
+<p>Something that&rsquo;s often missing when an API of a library grows organically
+when many people add features and solve their own issues over a time span of
+years is <em>requirements engineering</em>. Meaning: start with a well-defined scope
+and use cases, derive requirements from those use cases, and then refer to
+those use cases and requirements when making individual technical design
+decisions. We aim to take such an approach, to end up with a consistent
+design and with good, documented rationales for decisions.</p>
+<p>We need to carefully define scope, including both goals and non-goals. For
+example, while we aim to make array and dataframe libraries compatible so
+consumers of those data structures will be able to support multiple of those
+libraries, <em>runtime switching</em> without testing or any changes in the
+consuming library is not a goal. A concrete example: we aim to make it
+possible for scikit-learn to consume CuPy arrays and JAX and PyTorch tensors
+from pure Python code (as a first goal; C/C++/Cython is a harder nut to crack),
+but we expect that to require some amount of changes and possibly
+special-casing in scikit-learn - because specifying every last implementation
+detail scikit-learn may be relying on isn&rsquo;t feasible.</p>
+<h3 id="be-conservative-in-choices-made">Be conservative in choices made</h3>
+<p>A standard only has value if it&rsquo;s adhered to widely. So it has to be both
+easy to adopt a standard and sensible/uncontroversial to do so.
+This implies that we should only attempt to standardize functionality with which
+there is already wide experience, and that all libraries either already have
+in some form or can implement with a reasonable amount of effort. Therefore,
+there will be more consolidation than innovation - what is new is almost by
+definition hard to standardize.</p>
+<h3 id="a-data-driven-approach">A data-driven approach</h3>
+<p>Two of the main questions we may have when talking about any individual
+function, method or object are:</p>
+<ol>
+<li>What are the signatures and semantics of all of the current implementations?</li>
+<li>Who uses the API, how often and in which manner?</li>
+</ol>
+<p>To answer those questions we built two sets of tooling for API comparisons
+and gathering telemetry data, which we are releasing today under an MIT
+license (the license we&rsquo;ll use for all code and documents):</p>
+<p><a href="https://github.com/data-apis/array-api-comparison">array-api-comparison</a>
+takes the approach of parsing all public html docs from array libraries and
+compiling overviews of presence/absence of functionality and its signatures,
+and rendering the result as html tables. Finding out what is common or
+different is one <code>make</code> command away; e.g., the intersection of functions
+present in all libraries can be obtained with <code>make view-intersection</code>:</p>
+<p><img src="/images/array_API_comparison_output.png" alt="Array library API intersection"></p>
+<p>A similar tool and dataset for dataframe libraries will follow.</p>
+<p><a href="https://github.com/data-apis/python-record-api">python-record-api</a> takes a
+tracing-based approach. It is able to log all function calls from running a
+module, or when running pytest, from a specified module to another module. It
+is able to not only determine what functions are called, but also which
+keywords are used, and the types of all input arguments. It stores the
+results of running any code base, such as the test suite of a consumer
+library, as JSON. Initial results for NumPy usage by Pandas, Matplotlib,
+scikit-learn, Xarray and scikit-image are stored in the repository, and more
+results can be added incrementally. The next thing it can do is take that
+data and synthesize an API from it, based on actual usage. Such a generated
+API may need curation and changes, but is a very useful data point when
+discussing what should and should not be included in an API standard.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">sum</span><span class="p">(</span>
+    <span class="n">a</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span>
+    <span class="n">axis</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="bp">None</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="bp">None</span><span class="p">],</span> <span class="o">...</span><span class="p">]]</span> <span class="o">=</span> <span class="o">...</span><span class="p">,</span>
+    <span class="n">out</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">float64</span><span class="p">]</span> <span class="o">=</span> <span class="o">...</span><span class="p">,</span>
+    <span class="n">dtype</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">type</span><span class="p">,</span> <span class="bp">None</span><span class="p">]</span> <span class="o">=</span> <span class="o">...</span><span class="p">,</span>
+    <span class="n">keepdims</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="o">...</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">    usage.pandas: 38
+</span><span class="s2">    usage.skimage: 114
+</span><span class="s2">    usage.sklearn: 397
+</span><span class="s2">    usage.xarray: 75
+</span><span class="s2">    &#34;&#34;&#34;</span>
+    <span class="o">...</span>
+</code></pre></div><p><em>Example of the usage statistics and synthesized API for <code>numpy.sum</code>.</em></p>
+<h2 id="who-is-involved">Who is involved?</h2>
+<p>Quansight Labs started this initiative to tackle the problem of
+fragmentation of data structures. In discussions with potential sponsors and
+community members, it evolved from a development-focused effort to the
+current API standardization approach. Quansight Labs is a public benefit
+division of Quansight, with a <a href="https://labs.quansight.org/about/">mission</a> to
+sustain and grow community-driven open source projects and ecosystems, with a
+focus on the core of the PyData stack.</p>
+<p>The founding sponsors are Intel, Microsoft, the D. E. Shaw group, Google
+Research and Quansight. We also invited a number of key community
+contributors, to ensure representation of stakeholder projects.</p>
+<p>The basic principles we used for initial membership are:</p>
+<ul>
+<li>Consider all of the most popular array (tensor) and dataframe libraries</li>
+<li>Invite at least one key contributor from each community-driven project</li>
+<li>Engage with all company-driven projects on an equal basis: sketching the
+goals, asking for participation and $50k in funding in order to be able to
+support the required engineering and technical writing.</li>
+<li>For company-driven projects that were interested but not able to sponsor,
+we invited a key member of their array or dataframe library to join.</li>
+</ul>
+<p>The details of how decision making is done and new members are accepted is
+outlined in the <a href="https://github.com/data-apis/governance">Consortium governance repository</a>,
+and the <a href="https://github.com/data-apis/governance/blob/master/members_and_sponsors.md">members and sponsors</a>
+page gives an overview of current participants.
+<em>The details of how the Consortium functions are likely to evolve over the</em>
+<em>next months - we&rsquo;re still at the start of this endeavour.</em></p>
+<h2 id="where-we-go-from-here">Where we go from here</h2>
+<p>Here is an approximate timeline of what we hope to do over the next couple of months:</p>
+<ul>
+<li>today: announcement blog post and tooling and governance repositories made public</li>
+<li>next week: first public conference call</li>
+<li>Sep 1: publish a website for the Consortium at data-apis.org</li>
+<li>Sep 15: publish the array API RFC and start community review</li>
+<li>Nov 15: publish the dataframe API RFC and start community review</li>
+</ul>
+<p>If you&rsquo;re an array (tensor) or dataframe library maintainer: <strong>we&rsquo;d like to hear from you!</strong>
+We have opened <a href="https://github.com/data-apis/consortium-feedback/">an issue tracker</a>
+for discussions. We&rsquo;d love to hear any ideas, questions and concerns you may
+have.</p>
+<p>This is a very challenging problem, with lots of thorny questions to answer, like:</p>
+<ul>
+<li>how will projects adopt a standard and expose it to their users without significant backwards compatibility breaks?</li>
+<li>what does versioning and evolving the standard look like?</li>
+<li>what about extensions that are not included in the standard?</li>
+</ul>
+<p>Those challenges are worth tackling though, because the benefits are potentially very large.
+We&rsquo;re looking forward to what comes next!</p>
+
+
+</div>
+
+    <div class="">
+        <p>
+  Published
+  
+    
+      by <span itemprop="author">Ralf Gommers</span>
+    
+  
+  <time datetime="2020-08-16T22:00:00&#43;00:00">
+    16 Aug, 2020
+  </time>
+  
+    in <span itemprop="articleSection"><a href="/categories/consortium/">Consortium</a></span>
+  
+  
+    and tagged <a href="/tags/apis/">APIs</a>, <a href="/tags/arrays/">arrays</a>, <a href="/tags/community/">community</a>, <a href="/tags/consortium/">consortium</a>, <a href="/tags/dataframes/">dataframes</a> and <a href="/tags/standard/">standard</a>
+  
+  using <span itemprop="wordCount">2258</span> words.
+</p>
+
+        
+
+
+
+    </div>
+    
+    
+    
+</div>
+</div>
+</main>
+  <footer>   <footer id="footer">
+    <nav>
+      <ul>
+        <li><span>Consortium</span></li>
+        <li>
+          <a href="/blog/">Blog</a>
+        </li>
+        <li>
+          <a href="https://github.com/data-apis">GitHub</a>
+        </li>
+          <li>
+          <a href="https://github.com/data-apis/governance/blob/master/consortium_governance.md">Governance</a>
+        </li>
+          <li>
+          <a href="https://github.com/data-apis/.github/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a>
+        </li>
+      </ul>
+    </nav>
+    <p>&copy Consortium Members; Licence MIT.</p>
+  </footer> </footer>
+
+
+  <script src="/js/kube.js" type="text/javascript">
+  </script>
+  <script src="/js/kube.legenda.js" type="text/javascript">
+  </script>
+  <script src="/js/master.js" type="text/javascript">
+  </script>
+</body>
+
+</html>

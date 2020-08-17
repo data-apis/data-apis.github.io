@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>dataframes on Consortium for Python Data API Standards</title>
+    <link>https://data-apis.org/tags/dataframes/</link>
+    <description>Recent content in dataframes on Consortium for Python Data API Standards</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 16 Aug 2020 22:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://data-apis.org/tags/dataframes/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Announcing the Consortium for Python Data API Standards</title>
+      <link>https://data-apis.org/blog/announcing_the_consortium/</link>
+      <pubDate>Sun, 16 Aug 2020 22:00:00 +0000</pubDate>
+      
+      <guid>https://data-apis.org/blog/announcing_the_consortium/</guid>
+      <description>Over the past few years, Python has exploded in popularity for data science, machine learning, deep learning and numerical computing. New frameworks pushing forward the state of the art in these fields are appearing every year. One unintended consequence of all this activity and creativity has been fragmentation in the fundamental building blocks - multidimensional array (tensor) and dataframe libraries - that underpin the whole Python data ecosystem. For example, arrays are fragmented between Tensorflow, PyTorch, NumPy, CuPy, MXNet, Xarray, Dask, and others.</description>
+    </item>
+    
+  </channel>
+</rss>
