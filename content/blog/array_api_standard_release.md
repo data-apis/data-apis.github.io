@@ -150,7 +150,7 @@ So who was involved in getting the API standard to this point, and which
 libraries do we hope will adopt this standard? The answer to the latter is
 "all existing and new array and tensor libraries with a Python API". As for
 who was involved, we were lucky to get contributions from creators and senior
-maintainers of almost every of interest - here's a brief description:
+maintainers of almost every project of interest - here's a brief description:
 
 - NumPy: Stephan Hoyer and Ralf Gommers are both long-time NumPy maintainers.
   In addition we got to consult regularly with Travis Oliphant, creator of
