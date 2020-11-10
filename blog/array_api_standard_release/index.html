@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta name="generator" content="Hugo 0.75.1" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> First release of the Array API Standard </title>
+
+  
+  <meta name="description" content="This first release of the standards document and accompanying test suite marks the start of the community review period."> 
+  
+  
+  
+  
+  
+
+  
+
+  <meta name="author" content="Ralf Gommers">
+
+
+  <meta property="og:title" content="First release of the Array API Standard" />
+<meta property="og:description" content="This first release of the standards document and accompanying test suite marks the start of the community review period." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://data-apis.org/blog/array_api_standard_release/" />
+<meta property="article:published_time" content="2020-11-10T08:00:00+00:00" />
+<meta property="article:modified_time" content="2020-11-10T08:00:00+00:00" />
+
+  
+
+
+
+
+  
+  
+  
+  
+  
+
+  <link rel="canonical" href="https://data-apis.org/blog/array_api_standard_release/">  
+
+  <link rel="shortcut icon" type="image/png" href="data:image/png;base64,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RvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3EldwAAAAAAAJJjRvlaOwAAAAAAALXmk3Eld+D/AfhEhmLqHBsfAAAAAElFTkSuQmCC">
+
+
+  <link href="/css/font.css" rel="stylesheet" type="text/css">
+  <link href="/css/kube.min.css" rel="stylesheet" type="text/css">
+  <link href="/css/kube.legenda.css" rel="stylesheet" type="text/css">
+  <link href="/css/highlight.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/default.min.css">
+  <link href="/css/master.css" rel="stylesheet" type="text/css">
+  <link href="/css/kube.demo.css" rel="stylesheet" type="text/css">
+
+ <link href="/css/custom.css" rel="stylesheet" type="text/css">
+
+  <script src="/js/jquery-2.1.4.min.js" type="text/javascript">
+  </script>
+
+  <script type="text/javascript" src="/js/tocbot.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+</head>
+
+
+<body class="page-kube">
+  <header> <div class="show-sm">
+    <div id="nav-toggle-box">
+      <div id="nav-toggle-brand">
+        <a href="/">Consortium for Python Data API Standards</a>
+      </div><a data-component="toggleme" data-target="#top" href="#" id="nav-toggle"><i class="kube-menu"></i></a>
+    </div>
+  </div>
+  <div class="hide-sm" id="top">
+    <div id="top-brand">
+      <a href="/" title="home">Consortium for Python Data API Standards</a>
+    </div>
+    <nav id="top-nav-main">
+      <ul>
+       
+       
+    <li><a href="/blog/" >Blog</a></li>
+    
+      </ul>
+    </nav>
+    <nav id="top-nav-extra"> 
+      <ul>
+          
+      </ul>
+    </nav>
+  </div>
+ </header>
+  <main>
+<div class="push-center" itemscope itemtype="http://schema.org/BlogPosting">
+    <meta itemprop="name" content="First release of the Array API Standard">
+<meta itemprop="description" content="This first release of the standards document and accompanying test suite marks the start of the community review period.">
+<meta itemprop="datePublished" content="2020-11-10T08:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-11-10T08:00:00+00:00" />
+<meta itemprop="wordCount" content="1424">
+
+
+
+<meta itemprop="keywords" content="APIs,standard,consortium,arrays,community," />
+
+<div id="hero">
+    <h1 itemprop="headline">  First release of the Array API Standard</h1>
+    
+<blockquote itemprop="description">This first release of the standards document and accompanying test suite marks the start of the community review period.</blockquote>
+
+<time class="post-time"><span class="icon">
+  <i class="fa fa-clock-o" aria-hidden="true"></i>
+</span>
+<span>7 minute read</span>
+<span class="icon">
+ <i class="fa fa-pencil" aria-hidden="true"></i>
+</span>
+
+  Published: <time datetime="2020-11-10T08:00:00&#43;00:00">10 Nov, 2020</time>
+
+</time>
+</div>
+<div id="post-box">
+<div id="post" itemprop="articleBody">
+    
+    <p>Array and tensor libraries - from NumPy, TensorFlow and PyTorch to Dask, JAX,
+MXNet and beyond - could benefit greatly from a uniform API for creating and
+working with multi-dimensional arrays (a.k.a tensors), as we discussed in
+<a href="/blog/announcing_the_consortium/">our previous blog post</a>.
+Today we&rsquo;re pleased to announce a first version of our array API standard
+(<a href="https://data-apis.github.io/array-api/latest">document</a>,
+<a href="https://github.com/data-apis/array-api/">repo</a>) for review by the
+wider community. Getting to this point took slightly longer than we had
+initially announced because, well, it&rsquo;s 2020 and hence nothing quite goes
+according to plan.</p>
+<p>The current status of the standard is that it is a coherent story (or at
+least, we hope it is) that gives readers enough context about goals and scope
+to understand and review the design decisions already taken and APIs it
+contains. However, <em>it is not yet complete and we can still change direction
+and make significant changes based on community feedback</em>. This is important
+&mdash; no one likes a &ldquo;take it or leave it&rdquo; approach, and more eyes can make the
+final result better. There&rsquo;s still a few TODOs in places, and a couple of key
+sections to be finished. The most important of those are the API for device
+support, and the Python API for the
+<a href="https://data-apis.github.io/array-api/latest/design_topics/data_interchange.html">data interchange protocol</a>
+(proposed to be based on <a href="https://github.com/dmlc/dlpack">DLPack</a>).</p>
+<p>It is worth repeating the main goal of this standard: make it easier to
+switch from one array library to another one, or to support multiple array
+libraries as compute backends in downstream packages. We&rsquo;d also like to
+emphasize that if some functionality is <em>not</em> present in the API standard,
+that does <em>not</em> mean it&rsquo;s unimportant, or that we&rsquo;re asking existing array
+libraries to deprecate it. Instead it simply means that that functionality at
+present isn&rsquo;t supported - likely due to it not being present in all or most
+current array libraries, or not being used widely enough to have been
+included so far. The <a href="https://data-apis.github.io/array-api/latest/use_cases.html">use cases section</a>
+of the standard may provide more insight into important goals.</p>
+<h2 id="some-key-design-topics">Some key design topics</h2>
+<p>Two topics stood out so far in terms of complexity and choices that were hard
+to make in such a way that they&rsquo;d work well for all existing libraries:
+mutability &amp; copy/view behaviour, and dtype casting rules.</p>
+<h5 id="the-standard-will-contain-common-mutable-operations-such-as-slice-assignment-but-will-generally-avoid-in-place-mutation-in-apis-like-the-out-keyword">The standard will contain common mutable operations such as slice assignment, but will generally avoid in-place mutation in APIs like the <code>out</code> keyword</h5>
+<p>NumPy, PyTorch, CuPy and MXNet provide strided arrays, and rely heavily on
+mutating values in existing arrays and on the concept of a &ldquo;view&rdquo; for
+performance. TensorFlow, JAX and Dask on the other hand have no or limited
+support, given that they rely on an execution graph and/or JIT compiler which
+provides constraints on how much mutability can be supported. The design
+decisions described <a href="https://data-apis.github.io/array-api/latest/design_topics/copies_views_and_mutation.html">here</a>
+will allow the most heavily used types of mutability - inplace operators,
+item assignment and slice assignment - to be retained, while avoiding the use
+of the <code>out=</code> keyword which is problematic to support for some libraries and
+arguably a suboptimal API to begin with.</p>
+<p>For libraries like SciPy and scikit-learn, the supported features are essential.
+Code like this, from scikit-learn&rsquo;s <code>ForestClassifier</code>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_outputs_</span><span class="p">):</span>
+    <span class="n">predictions</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">unsampled_indices</span><span class="p">,</span> <span class="p">:]</span> <span class="o">+=</span> <span class="n">p_estimator</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+</code></pre></div><p>or this, from SciPy&rsquo;s <code>optimize.linprog</code>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">r</span> <span class="o">=</span> <span class="n">b</span> <span class="o">-</span> <span class="n">A</span><span class="nd">@x</span>
+<span class="n">A</span><span class="p">[</span><span class="n">r</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">A</span><span class="p">[</span><span class="n">r</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">b</span><span class="p">[</span><span class="n">r</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">b</span><span class="p">[</span><span class="n">r</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">r</span><span class="p">[</span><span class="n">r</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
+</code></pre></div><p>is quite common and we see it as fundamental to how users work with array libraries.
+<code>out=</code> is less essential though, and leaving it out is important for JAX,
+TensorFlow, Dask, and future libraries designed on immutable data structures.</p>
+<h5 id="casting-rules-for-mixed-type-families-will-not-be-specified-and-are-implementation-specific">Casting rules for mixed type families will not be specified and are implementation specific</h5>
+<p>Casting rules are relatively straightforward when all involved dtypes are of
+the same kind (e.g. all integer), but when mixing for example integers and
+floats it quickly becomes clear that array libraries don&rsquo;t agree with each
+other. One may get exceptions, or dtypes with different precision. Therefore
+we had to make the choice to leave the rules for &ldquo;mixed kind dtype casting&rdquo;
+undefined - when users want to write portable code, they should avoid this
+situation or use explicit casts to obtain the same results from different
+array libraries. An example as simple as this one:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># will be integer</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float16</span><span class="p">)</span>
+<span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">dtype</span>
+</code></pre></div><p>will show the issue. NumPy will produce <code>float64</code> here, PyTorch will produce
+<code>float16</code>, and TensorFlow will raise <code>InvalidArgumentError</code> because it does not
+support mixing integer and float dtypes.</p>
+<p>See <a href="https://data-apis.github.io/array-api/latest/API_specification/type_promotion.html">this section of the standard</a>
+for more details on casting rules.</p>
+<h2 id="a-portable-test-suite">A portable test suite</h2>
+<p>With the array API standard document we are also working on a
+<a href="https://github.com/data-apis/array-api-tests">test suite</a>. This test suite
+will be implemented with Pytest and Hypothesis, and won&rsquo;t rely on any
+particular array implementation, and is meant to test compliance with the API
+standard.</p>
+<p>It is still very much a work-in-progress, but the aim is to complete it by
+the time the community review of the API standard wraps up. However, the
+community is encouraged to check out the current work on the test suite on
+<a href="https://github.com/data-apis/array-api-tests">GitHub</a> and try it out and
+comment on it. The
+<a href="https://github.com/data-apis/array-api-tests/blob/master/README.md">README</a>
+in the test suite repo contains more information on how to run it and
+contribute to it.</p>
+<p>The test suite will be runnable with any existing library. This can be done
+by specifying the array implementation namespace to be tested via an
+environment variable:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nv">ARRAY_API_TESTS_MODULE</span><span class="o">=</span>jax.numpy pytest
+</code></pre></div><p>The test suite will also support vendoring so that array libraries can easily
+include it in their own test suites.</p>
+<p>The result of running the test suite will be an overview of the level of
+compliance with the standard. We expect it will take time for libraries to
+get to 100%; anything less shouldn&rsquo;t just mean &ldquo;fail&rdquo;, 98% would be a major
+step towards portable code compared to today.</p>
+<h2 id="people--projects">People &amp; projects</h2>
+<p>So who was involved in getting the API standard to this point, and which
+libraries do we hope will adopt this standard? The answer to the latter is
+&ldquo;all existing and new array and tensor libraries with a Python API&rdquo;. As for
+who was involved, we were lucky to get contributions from creators and senior
+maintainers of almost every of interest - here&rsquo;s a brief description:</p>
+<ul>
+<li>NumPy: Stephan Hoyer and Ralf Gommers are both long-time NumPy maintainers.
+In addition we got to consult regularly with Travis Oliphant, creator of
+NumPy, on the history behind some decisions made early on in NumPy&rsquo;s life.</li>
+<li>TensorFlow: Alexandre Passos was a technical lead on the TensorFlow team,
+and has been heavily involved until a few weeks ago. Paige Bailey is the
+product manager for TensorFlow APIs at Google Research. Edward Loper and
+Ashish Agarwal, TensorFlow maintainers, replaced Alexandre recently as
+Consortium members.</li>
+<li>PyTorch: Adam Paszke is one of the co-creators of PyTorch. Ralf Gommers
+leads a team of engineers contributing to PyTorch.</li>
+<li>MXNet: Sheng Zha is a long-time MXNet maintainer. Markus Weimer is an
+Apache PMC member and mentor for the MXNet incubation process into the
+Apache Foundation.</li>
+<li>JAX: Stephan Hoyer and Adam Paszke are two maintainers of JAX.</li>
+<li>XArray: Stephan Hoyer is one of the co-creators, and still a maintainer, of Xarray.</li>
+<li>Dask: Tom Augspurger is a senior Dask maintainer.</li>
+<li>CuPy: we have no active participant from CuPy. However we have talked to
+the CuPy team at Preferred Networks, who are supportive of the goals and
+committed to following NumPy&rsquo;s lead on APIs.</li>
+<li>ONNX: Sheng Zha is an ONNX Steering Committee member.</li>
+</ul>
+<p>Many other people have made contributions so far, including the Consortium
+members listed at <a href="https://github.com/data-apis/governance">https://github.com/data-apis/governance</a>.</p>
+<h2 id="next-steps-to-a-first-complete-standard">Next steps to a first complete standard</h2>
+<p>We are now looking for feedback from the wider community, and in particular
+maintainers of array libraries. For each of those libraries, a Consortium
+member involved in the library will be soliciting feedback from their own
+project. We&rsquo;d like to get to the point where it&rsquo;s clear for each library that
+there are no blockers to adoption and that the overall shape of the API
+standard is considered valuable enough to support.</p>
+<p>In addition, given that this API standard is completely new and drafting
+something like it hasn&rsquo;t been attempted before in this community, we&rsquo;d love
+to get meta feedback - is anything missing or in need of shaping in the
+standard document, the goal and scope, ways to participate, or any other such
+topic?</p>
+<p>To provide feedback on the array API standard, please open issues or pull
+requests on <a href="https://github.com/data-apis/array-api">https://github.com/data-apis/array-api</a>. For larger discussions
+and meta-feedback, please open GitHub Discussion topics at
+<a href="https://github.com/data-apis/consortium-feedback/discussions">https://github.com/data-apis/consortium-feedback/discussions</a>.</p>
+
+
+</div>
+
+    <div class="">
+        <p>
+  Published
+  
+    
+      by <span itemprop="author">Ralf Gommers</span>
+    
+  
+  <time datetime="2020-11-10T08:00:00&#43;00:00">
+    10 Nov, 2020
+  </time>
+  
+    in <span itemprop="articleSection"><a href="/categories/consortium/">Consortium</a> and <a href="/categories/standardization/">Standardization</a></span>
+  
+  
+    and tagged <a href="/tags/apis/">APIs</a>, <a href="/tags/arrays/">arrays</a>, <a href="/tags/community/">community</a>, <a href="/tags/consortium/">consortium</a> and <a href="/tags/standard/">standard</a>
+  
+  using <span itemprop="wordCount">1424</span> words.
+</p>
+
+        
+  
+
+
+
+  <aside>
+    <heade><strong>Related Content</strong></header>
+    <hr>
+    <ul>
+      
+      
+        <li><a href="/blog/announcing_the_consortium/">Announcing the Consortium for Python Data API Standards</a> &ndash; 11 minutes
+      
+    </ul>
+  </aside>
+
+
+    </div>
+    
+    
+    
+</div>
+</div>
+</main>
+  <footer>   <footer id="footer">
+    <nav>
+      <ul>
+        <li><span>Consortium</span></li>
+        <li>
+          <a href="/blog/">Blog</a>
+        </li>
+        <li>
+          <a href="https://github.com/data-apis">GitHub</a>
+        </li>
+          <li>
+          <a href="https://github.com/data-apis/governance/blob/master/consortium_governance.md">Governance</a>
+        </li>
+          <li>
+          <a href="https://github.com/data-apis/.github/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a>
+        </li>
+      </ul>
+    </nav>
+    <p>&copy Consortium Members; Licence MIT.</p>
+  </footer> </footer>
+
+
+  <script src="/js/kube.js" type="text/javascript">
+  </script>
+  <script src="/js/kube.legenda.js" type="text/javascript">
+  </script>
+  <script src="/js/master.js" type="text/javascript">
+  </script>
+</body>
+
+</html>
