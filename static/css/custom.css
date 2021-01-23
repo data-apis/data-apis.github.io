@@ -9,3 +9,95 @@ mark, code, samp, kbd {
 
 code {
   background: #f8f8f8; }
+
+header {
+  background-color: #0c1b29;
+}
+
+header nav a {
+  color: white !important;
+}
+
+footer {
+  background-color: #0c1b29;
+  color: white !important;
+  margin-bottom: 0 !important;
+}
+
+footer li a{
+  color: white !important;
+}
+
+#hero h1 {
+  font-family: 'Montserrat', sans-serif;
+  color: #00bc87;
+}
+
+.button {
+  background-color: #00bc87;
+  border-color: #00bc87;
+}
+
+.button:hover {
+  background-color: #0c1b29;
+  border-color: #0c1b29;
+}
+
+.button.outline {
+  background: 0 0;
+  border-width: 2px;
+  border-color: #00bc87;
+  color: #00bc87;
+}
+
+.button.outline:hover {
+  border-color: #0c1b29;
+  color: #0c1b29;
+}
+
+a {
+  color: #00bc87;
+}
+
+a:hover {
+  color: #0c1b29;
+}
+
+#hero p:before {
+  background: white;
+}
+
+#posts h2 a {
+  color: #00bc87;
+  font-family: 'Montserrat', sans-serif;
+}
+
+h2 {
+  font-family: 'Montserrat', sans-serif;
+  color: #00bc87
+}
+
+h3 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+h4 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+#hero {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+#action-buttons p {
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #0c1b29;
+}
+
+#hero p {
+  color: #0c1b29;
+}
+
+blockquote {
+  color: #0c1b29;
+}
