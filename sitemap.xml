@@ -1,75 +1,47 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://data-apis.org/blog/array_api_standard_release/</loc>
     <lastmod>2020-11-10T08:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://data-apis.org/blog/announcing_the_consortium/</loc>
     <lastmod>2020-08-17T08:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://data-apis.org/tags/apis/</loc>
     <lastmod>2020-11-10T08:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://data-apis.org/tags/arrays/</loc>
     <lastmod>2020-11-10T08:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://data-apis.org/blog/</loc>
     <lastmod>2020-11-10T08:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://data-apis.org/categories/</loc>
     <lastmod>2020-11-10T08:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://data-apis.org/tags/community/</loc>
     <lastmod>2020-11-10T08:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://data-apis.org/categories/consortium/</loc>
     <lastmod>2020-11-10T08:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://data-apis.org/tags/consortium/</loc>
     <lastmod>2020-11-10T08:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://data-apis.org/</loc>
     <lastmod>2020-11-10T08:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://data-apis.org/tags/standard/</loc>
     <lastmod>2020-11-10T08:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://data-apis.org/categories/standardization/</loc>
     <lastmod>2020-11-10T08:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://data-apis.org/tags/</loc>
     <lastmod>2020-11-10T08:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://data-apis.org/tags/dataframes/</loc>
     <lastmod>2020-08-17T08:00:00+00:00</lastmod>
   </url>
-  
 </urlset>
