@@ -22,6 +22,11 @@ pygmentsUseClasses = true
     name = "Blog"
     weight = -100
     url = "/blog/"
+    
+[[menu.main]]
+    name = "Array API"
+    weight = -100
+    url = "https://data-apis.org/array-api/latest/"
 
 # To render raw html tags within Markdown
 [markup.goldmark.renderer]
