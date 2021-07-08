@@ -1,0 +1,28 @@
+version: 2
+# Aliases to reuse
+_defaults: &defaults
+  docker:
+    # CircleCI maintains a library of pre-built images
+    # documented at https://circleci.com/docs/2.0/circleci-images/
+    - image: cibuilds/hugo:0.80
+  working_directory: ~/repo
+jobs:
+  build_page:
+    <<: *defaults
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/
+      - run:
+          name: build docs
+          no_output_timeout: 25m
+          command: |
+            git submodule update --init --recursive
+            HUGO_ENV="production" hugo --themesDir themes/ --layoutDir layouts/
+      - store_artifacts:
+          path: public
+workflows:
+  version: 2
+  default:
+    jobs:
+      - build_page
