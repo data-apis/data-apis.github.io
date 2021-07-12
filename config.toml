@@ -5,6 +5,7 @@ theme = "kube"
 description = "The purpose of the Consortium is to develop API standards for common Python data structures for scientific, data science and machine learning users and applications - using a combination of design discussions, requirements engineering and data-driven approaches."
 Paginate = 4
 pygmentsUseClasses = true
+relativeURLs = true
 
 [Params]
   RSSLink = "/index.xml"
@@ -22,7 +23,7 @@ pygmentsUseClasses = true
     name = "Blog"
     weight = -100
     url = "/blog/"
-    
+
 [[menu.main]]
     name = "Array API"
     weight = -100
