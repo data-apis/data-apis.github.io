@@ -6,7 +6,7 @@
     <description>Recent content in standard on Consortium for Python Data API Standards</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 10 Nov 2020 08:00:00 +0000</lastBuildDate><atom:link href="https://data-apis.org/tags/standard/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 24 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://data-apis.org/tags/standard/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>First release of the Array API Standard</title>
       <link>https://data-apis.org/blog/array_api_standard_release/</link>
@@ -23,6 +23,15 @@
       
       <guid>https://data-apis.org/blog/announcing_the_consortium/</guid>
       <description>Over the past few years, Python has exploded in popularity for data science, machine learning, deep learning and numerical computing. New frameworks pushing forward the state of the art in these fields are appearing every year. One unintended consequence of all this activity and creativity has been fragmentation in the fundamental building blocks - multidimensional array (tensor) and dataframe libraries - that underpin the whole Python data ecosystem. For example, arrays are fragmented between Tensorflow, PyTorch, NumPy, CuPy, MXNet, Xarray, Dask, and others.</description>
+    </item>
+    
+    <item>
+      <title>Towards dataframe interoperability</title>
+      <link>https://data-apis.org/blog/dataframe_protocol_rfc/</link>
+      <pubDate>Tue, 24 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://data-apis.org/blog/dataframe_protocol_rfc/</guid>
+      <description>In the PyData ecosystem we have a large number of dataframe libraries as of today, each with their own strengths and weaknesses. Pandas is the most popular library today. Other libraries offer significant capabilities beyond what it provides though - impressive performance gains for Vaex (CPU) and cuDF (GPU), distributed dataframes for Modin and Dask, or leveraging Spark as an execution engine for Koalas. For downstream library authors, it would be powerful to be able to work with all these libraries.</description>
     </item>
     
   </channel>

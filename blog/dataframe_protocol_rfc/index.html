@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta name="generator" content="Hugo 0.86.1" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Towards dataframe interoperability </title>
+
+  
+  <meta name="description" content="An RFC for a dataframe interchange protocol"> 
+  
+  
+  
+  
+  
+
+  
+
+  <meta name="author" content="Ralf Gommers">
+
+
+  <meta property="og:title" content="Towards dataframe interoperability" />
+<meta property="og:description" content="An RFC for a dataframe interchange protocol" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://data-apis.org/blog/dataframe_protocol_rfc/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2021-08-24T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-08-24T00:00:00+00:00" />
+
+
+  
+
+
+
+
+  
+  
+  
+  
+  
+
+  <link rel="canonical" href="https://data-apis.org/blog/dataframe_protocol_rfc/">  
+
+  <link rel="icon" href="../../images/icon.png">
+
+  <link href="../../css/font.css" rel="stylesheet" type="text/css">
+  <link href="../../css/kube.min.css" rel="stylesheet" type="text/css">
+  <link href="../../css/kube.legenda.css" rel="stylesheet" type="text/css">
+  <link href="../../css/highlight.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/default.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="../../css/master.css" rel="stylesheet" type="text/css">
+  <link href="../../css/kube.demo.css" rel="stylesheet" type="text/css">
+
+ <link href="../../css/custom.css" rel="stylesheet" type="text/css">
+
+  <script src="../../js/jquery-2.1.4.min.js" type="text/javascript">
+  </script>
+
+  <script type="text/javascript" src="../../js/tocbot.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+</head>
+
+
+<body class="page-kube">
+  <header> <div class="show-sm">
+    <div id="nav-toggle-box">
+      <div id="nav-toggle-brand">
+        <a href="../../">Consortium for Python Data API Standards</a>
+      </div><a data-component="toggleme" data-target="#top" href="#" id="nav-toggle"><i class="kube-menu"></i></a>
+    </div>
+  </div>
+  <div class="hide-sm" id="top">
+    <div id="top-brand">
+      <a href="../../">
+          <img src="../../images/dark_blue_logo.png">
+      </a>
+    </div>
+    <nav id="top-nav-main">
+      <ul>
+       
+       
+    <li><a href="https://data-apis.org/array-api/latest/" >Array API</a></li>
+    
+    <li><a href="../../blog/" >Blog</a></li>
+    
+      </ul>
+    </nav>
+    <nav id="top-nav-extra">
+      <ul>
+        
+      </ul>
+    </nav>
+  </div>
+ </header>
+  <main>
+<div class="push-center" itemscope itemtype="http://schema.org/BlogPosting">
+    <meta itemprop="name" content="Towards dataframe interoperability">
+<meta itemprop="description" content="An RFC for a dataframe interchange protocol"><meta itemprop="datePublished" content="2021-08-24T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-08-24T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1545">
+<meta itemprop="keywords" content="APIs,standard,consortium,dataframes,community," />
+<div id="hero">
+    <h1 itemprop="headline">  Towards dataframe interoperability</h1>
+    
+<blockquote itemprop="description">An RFC for a dataframe interchange protocol</blockquote>
+
+<time class="post-time"><span class="icon">
+  <i class="fa fa-clock-o" aria-hidden="true"></i>
+</span>
+<span>8 minute read</span>
+<span class="icon">
+ <i class="fa fa-pencil" aria-hidden="true"></i>
+</span>
+
+  Published: <time datetime="2021-08-24T00:00:00&#43;00:00">24 Aug, 2021</time>
+
+</time>
+</div>
+<div id="post-box">
+<div id="post" itemprop="articleBody">
+    
+    <p>In the PyData ecosystem we have a large number of dataframe libraries as of
+today, each with their own strengths and weaknesses. Pandas is the most
+popular library today. Other libraries offer significant capabilities beyond
+what it provides though - impressive performance gains for Vaex (CPU) and
+cuDF (GPU), distributed dataframes for Modin and Dask, or leveraging Spark as
+an execution engine for Koalas. For downstream library authors, it would be
+powerful to be able to work with all these libraries. Which right now is
+quite difficult, and therefore in practice most library authors choose to
+focus only on Pandas.</p>
+<p>The first step to improve this situation is to use a &ldquo;data interchange
+protocol&rdquo;, which will allow converting one type of dataframe into another, as
+well as inspect the dataframe for basic properties (&ldquo;how many columns does it
+have?&rdquo;, &ldquo;what are the column names?&rdquo;, &ldquo;what are the dtypes for a given
+column?&quot;) and convert only subsets of it.</p>
+<p>We are happy to release a Request for Comments (RFC) today, containing both a
+design document with purpose, scope and requirements for such a dataframe
+interchange protocol, as well as a prototype design:
+<a href="https://data-apis.org/dataframe-protocol/latest/index.html">documentation</a>,
+<a href="https://github.com/data-apis/dataframe-api">repository</a>.</p>
+<p>We note that an interchange protocol is not a completely new idea: for arrays
+we have had such protocols for a long time, e.g., <code>__array_interface__</code>, the
+buffer protocol (PEP 3118), <code>__cuda_array_interface__</code> and DLPack. The
+conversation about a dataframe interchange protocol was started by Gael
+Varoquaux last year in <a href="https://discuss.ossdata.org/t/a-dataframe-protocol-for-the-pydata-ecosystem/267">this Discourse
+thread</a>.
+In response Wes McKinney sketched up an initial prototype
+<a href="https://github.com/wesm/dataframe-protocol/pull/1">here</a>. There were a lot
+of good ideas in that initial conversation and prototype, however it was
+clear that it was a complex enough topic that a more thorough approach
+including collecting requirements and use cases from a large set of
+stakeholders was needed. The RFC we&rsquo;re announcing in this blog post is the
+result of taking that approach, and hopefully will be the starting point for
+implementations in all Python dataframe libraries.</p>
+<p><em>We want to emphasize that this is not a full dataframe API; the only
+attribute added to the dataframe class/object of a library will be
+<code>__dataframe__</code>. It is aimed at library authors, not at end users.</em></p>
+<h2 id="what-is-a-dataframe-anyway">What is a &ldquo;dataframe&rdquo; anyway?</h2>
+<p>Defining what a dataframe <em>is</em> turns out to be surprisingly difficult
+exercise. For example, can column named be integer or only strings, and must
+they be unique? Are row labels required, optional, or not a thing? Should
+there be any restriction on how data is stored inside a dataframe? Does it
+have other properties, like row-column symmetry, or support for certain
+operations?</p>
+<p>For the purposes of data interchange, we need to describe a dataframe both
+conceptually, and in terms of data representation in memory so that another
+library can interpret that data. Furthermore, we want to impose as few extra
+constraints as possible. Here is our working definition: <em>A dataframe is an
+ordered collection of columns, which are conceptually 1-D arrays with a dtype
+and missing data support. A column has a name, which is a unique string. A
+dataframe or a column may be &ldquo;chunked&rdquo;, meaning its data is not contiguous in
+memory.</em></p>
+<p><img src="../../images/dataframe_conceptual_model.png" alt="Conceptual model of a dataframe, with columns (possibly containing missing data), and chunks"></p>
+<p>For more on the conceptual model, and on requirements that a dataframe
+protocol must fulfill, see <a href="https://data-apis.org/dataframe-protocol/latest/design_requirements.html">this design
+document</a>.</p>
+<h2 id="key-design-choices">Key design choices</h2>
+<p>Given the goals and requirements we had for the protocol, there were still a
+number of design choices to make. The single most important choice is: does
+the protocol offer a description of how data is laid out in memory, or does
+it offer a way (or multiple ways) of exporting data in a given format, e.g. a
+column as an Apache Arrow array or a NumPy array.</p>
+<p>The choice we made here in <a href="https://github.com/data-apis/dataframe-api/tree/main/protocol">the current
+prototype</a> is:
+do not assume a particular implementation, describe memory down to the level of
+buffers (=contiguous, 1-D blocks of memory). And at that buffer level, we can
+make the connection between this dataframe protocol and the
+<a href="https://data-apis.org/array-api/latest/design_topics/data_interchange.html">array API standard via <code>__dlpack__</code></a>.</p>
+<h3 id="similarity-and-synergy-with-the-arrow-c-data-interface">Similarity (and synergy?) with the Arrow C Data Interface</h3>
+<p>When looking at the requirements and native in-memory formats of all
+prominent dataframe libraries, we found that the Arrow C Data Interface is
+pretty close to meeting all the requirements. So a natural question is: can
+we use that interface, and standardize a Python API on top of it?</p>
+<p>There are a couple of things in the current Arrow C Data Interface that
+didn&rsquo;t quite match everyone&rsquo;s needs. Most importantly, the Arrow C Data
+Interface does not have device support (e.g., GPUs). Other issues (or wishes)
+are:</p>
+<ul>
+<li>The &ldquo;deleter&rdquo;, which releases memory when it&rsquo;s no longer needed, lives at
+the column level in Arrow. Multiple people expressed the desire for more
+granular control. It seems more natural and performant to have the deleter
+at the buffer level.</li>
+<li>Allowing a column to have its data split over different devices, e.g. part
+of the data lives on CPU and part on GPU (a necessity if the data doesn&rsquo;t
+fit in GPU memory).</li>
+<li>Arrow supports masks, for null/missing values, as a bit mask. NumPy doesn&rsquo;t
+have bit masks, and boolean masks are normally one byte per value. This is
+a smaller issue though, because it can be solved via a convention like
+using (e.g.) a regular <code>int8</code> column with a certain name.</li>
+</ul>
+<p>Compared to the similaries between the two protocols, the differences are
+relatively minor. And a lot of work has already gone into the Arrow C Data
+Interface, hence we are interested in exploring if we can contribute the
+identified improvements back to Apache Arrow. That would potentially let us
+support, for example, an <code>__arrow_column__</code> attribute at the column level in
+Python, which would save dataframe libraries that already use Apache Arrow a
+significant amount of implementation work.</p>
+<h3 id="a-standard-dataframe-creation-function">A standard dataframe creation function</h3>
+<p>Also in the analogy to the array API standard, we are proposing a single new
+function, <code>from_dataframe</code>, for dataframe libraries to add in their top-level
+namespace. This function will know how to construct a library-native
+dataframe instance from any other dataframe object. Here is an example for
+Modin:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">modin.pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+
+<span class="k">def</span> <span class="nf">somefunc</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">    Do something interesting with dataframe `df`.
+</span><span class="s2">
+</span><span class="s2">    Parameters
+</span><span class="s2">    ----------
+</span><span class="s2">    df : dataframe instance
+</span><span class="s2">        Can be a Modin dataframe, or any other kind of dataframe supporting the `__dataframe__` protocol
+</span><span class="s2">    &#34;&#34;&#34;</span>
+    <span class="n">df_modin</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">from_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+    <span class="c1"># From now on, use Modin dataframe internally</span>
+
+
+<span class="k">def</span> <span class="nf">somefunc2</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">col1</span><span class="p">,</span> <span class="n">col2</span><span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">    Do something interesting with two columns from dataframe `df`.
+</span><span class="s2">
+</span><span class="s2">    Parameters
+</span><span class="s2">    ----------
+</span><span class="s2">    df : dataframe instance
+</span><span class="s2">        Can be a Modin dataframe, or any other kind of dataframe supporting the `__dataframe__` protocol
+</span><span class="s2">    col1 : str
+</span><span class="s2">        Name of column 1
+</span><span class="s2">    col1 : str
+</span><span class="s2">        Name of column 2
+</span><span class="s2">    &#34;&#34;&#34;</span>
+    <span class="c1"># This will extract just the two columns we need from `df`, and put them in</span>
+    <span class="c1"># a Modin dataframe. This is much more efficient than converting the</span>
+    <span class="c1"># (potentially very large) complete dataframe.</span>
+    <span class="n">df_modin</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">from_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">cols</span><span class="o">=</span><span class="p">[</span><span class="n">col1</span><span class="p">,</span> <span class="n">col2</span><span class="p">])</span>
+</code></pre></div><h2 id="next-steps">Next steps</h2>
+<p>This protocol is not completely done. We are releasing it now in order to get
+feedback from a wider range of stakeholders. We are interested to hear about
+everything from potential use cases we missed or should describe better, to
+whether the API feels natural, and low-level performance/implementation
+concerns or ideas for improvement.</p>
+<p>Today we are releasing one prototype implementation, for Pandas. Most of that
+prototype can be reused for implementations in other libraries. What we&rsquo;d
+really like to see next is: can this be used in downstream libraries like
+scikit-learn or Seaborn? Right now those accept Pandas dataframes; letting
+them work with other types of dataframes is potentially quite valuable. This
+is what we should see before finalizing the API and semantics of this
+protocol.</p>
+<h2 id="what-about-a-full-dataframe-api">What about a full dataframe API?</h2>
+<p>At the end of last year we released a full
+<a href="https://data-apis.github.io/array-api/latest/">array API standard</a>.
+So what about a full dataframe API?</p>
+<p>Our initial intent was to take the methodology we used for constructing the
+array API, and the lessons we learned doing so, to dataframes. We found that
+to be quite challenging however, due to two reasons:</p>
+<ol>
+<li>It turns out that dataframe library authors &amp; end users have quite
+different API design needs. Much more so than for arrays. Library authors
+need clear semantics, no surprises or performance cliffs, and explicit
+APIs. End users seem to want more &ldquo;magic&rdquo;, where API calls can be chained
+and basically &ldquo;do the right thing&rdquo;.</li>
+<li>For array libraries we used <em>API synthesis</em>, and based design decisions
+partly on data about how often current APIs are used. This worked because
+maintainers and end users are largely happy with the state of APIs for
+n-dimensional arrays. Those have an almost 25-year long history, so that&rsquo;s
+not surprising. Dataframes are much younger - Pandas was created in 2009
+and reached version 1.0 only last year. And much more is still in flux
+there. Hence freezing the current state of dataframe APIs via
+standardization did not seem like a good idea.</li>
+</ol>
+<p>So, what&rsquo;s next for a larger dataframe API? Our strategy will be to
+focus on library authors as an audience, and based on the introduction of the
+interchange protocol see if we can identify next pieces that are useful. And
+then organically grow the size of the API, while being careful to not
+standardize APIs that dataframe library maintainers are not completely
+satisfied with.</p>
+
+
+</div>
+
+    <div class="">
+        <p>
+  Published
+  
+    
+      by <span itemprop="author">Ralf Gommers</span>
+    
+  
+  <time datetime="2021-08-24T00:00:00&#43;00:00">
+    24 Aug, 2021
+  </time>
+  
+    in <span itemprop="articleSection"><a href="../../categories/consortium/">Consortium</a> and <a href="../../categories/standardization/">Standardization</a></span>
+  
+  
+    and tagged <a href="../../tags/apis/">APIs</a>, <a href="../../tags/community/">community</a>, <a href="../../tags/consortium/">consortium</a>, <a href="../../tags/dataframes/">dataframes</a> and <a href="../../tags/standard/">standard</a>
+  
+  using <span itemprop="wordCount">1545</span> words.
+</p>
+
+        
+  
+
+
+
+  <aside>
+    <heade><strong>Related Content</strong></header>
+    <hr>
+    <ul>
+      
+      
+        <li><a href="../../blog/array_api_standard_release/">First release of the Array API Standard</a> &ndash; 7 minutes
+      
+        <li><a href="../../blog/announcing_the_consortium/">Announcing the Consortium for Python Data API Standards</a> &ndash; 11 minutes
+      
+    </ul>
+  </aside>
+
+
+    </div>
+    
+    
+    
+</div>
+</div>
+</main>
+  <footer>   <footer id="footer">
+    <nav>
+      <ul>
+        <li><span>Consortium</span></li>
+        <li>
+          <a href="../../blog/">Blog</a>
+        </li>
+        <li>
+          <a href="https://data-apis.org/array-api/latest/">Array API</a>
+        </li>
+        <li>
+          <a href="https://github.com/data-apis">GitHub</a>
+        </li>
+          <li>
+          <a href="https://github.com/data-apis/governance/blob/master/consortium_governance.md">Governance</a>
+        </li>
+          <li>
+          <a href="https://github.com/data-apis/.github/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a>
+        </li>
+      </ul>
+    </nav>
+    <p>&copy Consortium Members; Licence MIT.</p>
+  </footer>
+ </footer>
+
+
+  <script src="../../js/kube.js" type="text/javascript">
+  </script>
+  <script src="../../js/kube.legenda.js" type="text/javascript">
+  </script>
+  <script src="../../js/master.js" type="text/javascript">
+  </script>
+</body>
+
+</html>
