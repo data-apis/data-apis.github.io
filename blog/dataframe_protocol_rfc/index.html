@@ -2,7 +2,7 @@
 <html lang="en-us">
 
 <head>
-  <meta name="generator" content="Hugo 0.86.1" />
+  <meta name="generator" content="Hugo 0.97.0" />
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -87,6 +87,8 @@
     
     <li><a href="../../blog/" >Blog</a></li>
     
+    <li><a href="../../annual-reports/" >Annual reports</a></li>
+    
       </ul>
     </nav>
     <nav id="top-nav-extra">
@@ -136,7 +138,7 @@ focus only on Pandas.</p>
 protocol&rdquo;, which will allow converting one type of dataframe into another, as
 well as inspect the dataframe for basic properties (&ldquo;how many columns does it
 have?&rdquo;, &ldquo;what are the column names?&rdquo;, &ldquo;what are the dtypes for a given
-column?&quot;) and convert only subsets of it.</p>
+column?&rdquo;) and convert only subsets of it.</p>
 <p>We are happy to release a Request for Comments (RFC) today, containing both a
 design document with purpose, scope and requirements for such a dataframe
 interchange protocol, as well as a prototype design:
@@ -225,40 +227,40 @@ function, <code>from_dataframe</code>, for dataframe libraries to add in their t
 namespace. This function will know how to construct a library-native
 dataframe instance from any other dataframe object. Here is an example for
 Modin:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">modin.pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-
-
-<span class="k">def</span> <span class="nf">somefunc</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span>
-    <span class="s2">&#34;&#34;&#34;
-</span><span class="s2">    Do something interesting with dataframe `df`.
-</span><span class="s2">
-</span><span class="s2">    Parameters
-</span><span class="s2">    ----------
-</span><span class="s2">    df : dataframe instance
-</span><span class="s2">        Can be a Modin dataframe, or any other kind of dataframe supporting the `__dataframe__` protocol
-</span><span class="s2">    &#34;&#34;&#34;</span>
-    <span class="n">df_modin</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">from_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-    <span class="c1"># From now on, use Modin dataframe internally</span>
-
-
-<span class="k">def</span> <span class="nf">somefunc2</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">col1</span><span class="p">,</span> <span class="n">col2</span><span class="p">):</span>
-    <span class="s2">&#34;&#34;&#34;
-</span><span class="s2">    Do something interesting with two columns from dataframe `df`.
-</span><span class="s2">
-</span><span class="s2">    Parameters
-</span><span class="s2">    ----------
-</span><span class="s2">    df : dataframe instance
-</span><span class="s2">        Can be a Modin dataframe, or any other kind of dataframe supporting the `__dataframe__` protocol
-</span><span class="s2">    col1 : str
-</span><span class="s2">        Name of column 1
-</span><span class="s2">    col1 : str
-</span><span class="s2">        Name of column 2
-</span><span class="s2">    &#34;&#34;&#34;</span>
-    <span class="c1"># This will extract just the two columns we need from `df`, and put them in</span>
-    <span class="c1"># a Modin dataframe. This is much more efficient than converting the</span>
-    <span class="c1"># (potentially very large) complete dataframe.</span>
-    <span class="n">df_modin</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">from_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">cols</span><span class="o">=</span><span class="p">[</span><span class="n">col1</span><span class="p">,</span> <span class="n">col2</span><span class="p">])</span>
-</code></pre></div><h2 id="next-steps">Next steps</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">modin.pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">somefunc</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Do something interesting with dataframe `df`.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Parameters
+</span></span></span><span class="line"><span class="cl"><span class="s2">    ----------
+</span></span></span><span class="line"><span class="cl"><span class="s2">    df : dataframe instance
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Can be a Modin dataframe, or any other kind of dataframe supporting the `__dataframe__` protocol
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">df_modin</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">from_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># From now on, use Modin dataframe internally</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">somefunc2</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">col1</span><span class="p">,</span> <span class="n">col2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Do something interesting with two columns from dataframe `df`.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Parameters
+</span></span></span><span class="line"><span class="cl"><span class="s2">    ----------
+</span></span></span><span class="line"><span class="cl"><span class="s2">    df : dataframe instance
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Can be a Modin dataframe, or any other kind of dataframe supporting the `__dataframe__` protocol
+</span></span></span><span class="line"><span class="cl"><span class="s2">    col1 : str
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Name of column 1
+</span></span></span><span class="line"><span class="cl"><span class="s2">    col1 : str
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Name of column 2
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># This will extract just the two columns we need from `df`, and put them in</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># a Modin dataframe. This is much more efficient than converting the</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># (potentially very large) complete dataframe.</span>
+</span></span><span class="line"><span class="cl">    <span class="n">df_modin</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">from_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">cols</span><span class="o">=</span><span class="p">[</span><span class="n">col1</span><span class="p">,</span> <span class="n">col2</span><span class="p">])</span>
+</span></span></code></pre></div><h2 id="next-steps">Next steps</h2>
 <p>This protocol is not completely done. We are releasing it now in order to get
 feedback from a wider range of stakeholders. We are interested to hear about
 everything from potential use cases we missed or should describe better, to
@@ -363,10 +365,10 @@ satisfied with.</p>
           <a href="https://github.com/data-apis">GitHub</a>
         </li>
           <li>
-          <a href="https://github.com/data-apis/governance/blob/master/consortium_governance.md">Governance</a>
+          <a href="https://github.com/data-apis/governance/blob/main/consortium_governance.md">Governance</a>
         </li>
           <li>
-          <a href="https://github.com/data-apis/.github/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a>
+          <a href="https://github.com/data-apis/.github/blob/main/CODE_OF_CONDUCT.md">Code of Conduct</a>
         </li>
       </ul>
     </nav>

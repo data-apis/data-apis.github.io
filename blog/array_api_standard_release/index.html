@@ -2,7 +2,7 @@
 <html lang="en-us">
 
 <head>
-  <meta name="generator" content="Hugo 0.86.1" />
+  <meta name="generator" content="Hugo 0.97.0" />
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -86,6 +86,8 @@
     <li><a href="https://data-apis.org/array-api/latest/" >Array API</a></li>
     
     <li><a href="../../blog/" >Blog</a></li>
+    
+    <li><a href="../../annual-reports/" >Annual reports</a></li>
     
       </ul>
     </nav>
@@ -171,14 +173,14 @@ of the <code>out=</code> keyword which is problematic to support for some librar
 arguably a suboptimal API to begin with.</p>
 <p>For libraries like SciPy and scikit-learn, the supported features are essential.
 Code like this, from scikit-learn&rsquo;s <code>ForestClassifier</code>:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_outputs_</span><span class="p">):</span>
-    <span class="n">predictions</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">unsampled_indices</span><span class="p">,</span> <span class="p">:]</span> <span class="o">+=</span> <span class="n">p_estimator</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
-</code></pre></div><p>or this, from SciPy&rsquo;s <code>optimize.linprog</code>:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">r</span> <span class="o">=</span> <span class="n">b</span> <span class="o">-</span> <span class="n">A</span><span class="nd">@x</span>
-<span class="n">A</span><span class="p">[</span><span class="n">r</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">A</span><span class="p">[</span><span class="n">r</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span>
-<span class="n">b</span><span class="p">[</span><span class="n">r</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">b</span><span class="p">[</span><span class="n">r</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span>
-<span class="n">r</span><span class="p">[</span><span class="n">r</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
-</code></pre></div><p>is quite common and we see it as fundamental to how users work with array libraries.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_outputs_</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">predictions</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">unsampled_indices</span><span class="p">,</span> <span class="p">:]</span> <span class="o">+=</span> <span class="n">p_estimator</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+</span></span></code></pre></div><p>or this, from SciPy&rsquo;s <code>optimize.linprog</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">r</span> <span class="o">=</span> <span class="n">b</span> <span class="o">-</span> <span class="n">A</span><span class="nd">@x</span>
+</span></span><span class="line"><span class="cl"><span class="n">A</span><span class="p">[</span><span class="n">r</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">A</span><span class="p">[</span><span class="n">r</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span><span class="p">[</span><span class="n">r</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">b</span><span class="p">[</span><span class="n">r</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">r</span><span class="p">[</span><span class="n">r</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
+</span></span></code></pre></div><p>is quite common and we see it as fundamental to how users work with array libraries.
 <code>out=</code> is less essential though, and leaving it out is important for JAX,
 TensorFlow, Dask, and future libraries designed on immutable data structures.</p>
 <h5 id="casting-rules-for-mixed-type-families-will-not-be-specified-and-are-implementation-specific">Casting rules for mixed type families will not be specified and are implementation specific</h5>
@@ -190,10 +192,10 @@ we had to make the choice to leave the rules for &ldquo;mixed kind dtype casting
 undefined - when users want to write portable code, they should avoid this
 situation or use explicit casts to obtain the same results from different
 array libraries. An example as simple as this one:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># will be integer</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float16</span><span class="p">)</span>
-<span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">dtype</span>
-</code></pre></div><p>will show the issue. NumPy will produce <code>float64</code> here, PyTorch will produce
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># will be integer</span>
+</span></span><span class="line"><span class="cl"><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float16</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">dtype</span>
+</span></span></code></pre></div><p>will show the issue. NumPy will produce <code>float64</code> here, PyTorch will produce
 <code>float16</code>, and TensorFlow will raise <code>InvalidArgumentError</code> because it does not
 support mixing integer and float dtypes.</p>
 <p>See <a href="https://data-apis.github.io/array-api/latest/API_specification/type_promotion.html">this section of the standard</a>
@@ -215,8 +217,8 @@ contribute to it.</p>
 <p>The test suite will be runnable with any existing library. This can be done
 by specifying the array implementation namespace to be tested via an
 environment variable:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nv">ARRAY_API_TESTS_MODULE</span><span class="o">=</span>jax.numpy pytest
-</code></pre></div><p>The test suite will also support vendoring so that array libraries can easily
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ <span class="nv">ARRAY_API_TESTS_MODULE</span><span class="o">=</span>jax.numpy pytest
+</span></span></code></pre></div><p>The test suite will also support vendoring so that array libraries can easily
 include it in their own test suites.</p>
 <p>The result of running the test suite will be an overview of the level of
 compliance with the standard. We expect it will take time for libraries to
@@ -332,10 +334,10 @@ and meta-feedback, please open GitHub Discussion topics at
           <a href="https://github.com/data-apis">GitHub</a>
         </li>
           <li>
-          <a href="https://github.com/data-apis/governance/blob/master/consortium_governance.md">Governance</a>
+          <a href="https://github.com/data-apis/governance/blob/main/consortium_governance.md">Governance</a>
         </li>
           <li>
-          <a href="https://github.com/data-apis/.github/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a>
+          <a href="https://github.com/data-apis/.github/blob/main/CODE_OF_CONDUCT.md">Code of Conduct</a>
         </li>
       </ul>
     </nav>

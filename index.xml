@@ -26,6 +26,15 @@
     </item>
     
     <item>
+      <title>Annual Reports</title>
+      <link>https://data-apis.org/annual-reports/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://data-apis.org/annual-reports/</guid>
+      <description> 2021 annual report  </description>
+    </item>
+    
+    <item>
       <title>Towards dataframe interoperability</title>
       <link>https://data-apis.org/blog/dataframe_protocol_rfc/</link>
       <pubDate>Tue, 24 Aug 2021 00:00:00 +0000</pubDate>
