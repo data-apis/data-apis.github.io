@@ -29,6 +29,11 @@ relativeURLs = true
     weight = -100
     url = "https://data-apis.org/array-api/latest/"
 
+[[menu.main]]
+    name = "Annual reports"
+    weight = -50
+    url = "/annual-reports/"
+
 # To render raw html tags within Markdown
 [markup.goldmark.renderer]
 unsafe= true
