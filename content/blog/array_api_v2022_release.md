@@ -73,7 +73,7 @@ do
 import array_api_compat.cupy as cp
 ```
 
-Each import includes all the functions from the normal NumPy or CuPy namespace, with the exception that functions having counterparts in the Array API standard are wrapped to ensure specification-compliant behavior.
+Each import includes all the functions from the normal NumPy or CuPy namespace, with the exception that functions having counterparts in the Array API Standard are wrapped to ensure specification-compliant behavior.
 
 Currently, the compatibility layer only supports NumPy and CuPy, but we're hoping to extend support to additional array libraries in the year ahead. In the meantime, if you're an array library consumer, we'd love to get your feedback. To get started, install from [PyPI](https://pypi.org/project/array-api-compat/)
 
