@@ -1,5 +1,5 @@
 +++
-date = "2023-02-09T08:00+00:00"
+date = "2023-02-02T08:00+00:00"
 author = "Athan Reines"
 title = "2022 release of the Array API Standard"
 tags = ["APIs", "standard", "consortium", "arrays", "community"]
