@@ -91,7 +91,7 @@ To drive this effort, we'll be
 
 1. working closely with downstream libraries to identify existing pain points and blockers preventing adoption.
 2. developing a robust set of tools for specification compliance monitoring and reporting.
-3. extending the [array compatibility layer](https://github.com/data-apis/array-api-compat) to support PyTorch and thus further smoothing the transition to a shackle-free future.
+3. extending the [array compatibility layer](https://github.com/data-apis/array-api-compat) to support PyTorch and thus further smooth the transition to a shackle-free future.
 
 We're excited for the year ahead, and we'd love to get your feedback! To provide feedback on the array API standard, please open issues or pull requests on <https://github.com/data-apis/array-api>. For larger discussions and meta-feedback, please open GitHub Discussion topics at <https://github.com/data-apis/consortium-feedback/discussions>.
 
