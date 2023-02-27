@@ -75,7 +75,7 @@ import array_api_compat.cupy as cp
 
 Each import includes all the functions from the normal NumPy or CuPy namespace, with the exception that functions having counterparts in the Array API Standard are wrapped to ensure specification-compliant behavior.
 
-Currently, the compatibility layer only supports NumPy and CuPy, but we're hoping to extend support to additional array libraries in the year ahead. In the meantime, if you're an array library consumer, we'd love to get your feedback. To get started, install from [PyPI](https://pypi.org/project/array-api-compat/)
+Currently, the compatibility layer supports NumPy, CuPy, and PyTorch, but we're hoping to extend support to additional array libraries in the year ahead. In the meantime, if you're an array library consumer, we'd love to get your feedback. To get started, install from [PyPI](https://pypi.org/project/array-api-compat/)
 
 ```bash
 pip install array-api-compat
@@ -91,7 +91,7 @@ To drive this effort, we'll be
 
 1. working closely with downstream libraries to identify existing pain points and blockers preventing adoption.
 2. developing a robust set of tools for specification compliance monitoring and reporting.
-3. extending the [array compatibility layer](https://github.com/data-apis/array-api-compat) to support PyTorch and thus further smooth the transition to a shackle-free future.
+3. extending the [array compatibility layer](https://github.com/data-apis/array-api-compat) to support additional array libraries and thus further smooth the transition to a shackle-free future.
 
 We're excited for the year ahead, and we'd love to get your feedback! To provide feedback on the Array API Standard, please open issues or pull requests on <https://github.com/data-apis/array-api>.
 
