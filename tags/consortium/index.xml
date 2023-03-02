@@ -6,7 +6,16 @@
     <description>Recent content in consortium on Consortium for Python Data API Standards</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 24 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://data-apis.org/tags/consortium/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 01 Mar 2023 08:00:00 +0000</lastBuildDate><atom:link href="https://data-apis.org/tags/consortium/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2022 release of the Array API Standard</title>
+      <link>https://data-apis.org/blog/array_api_v2022_release/</link>
+      <pubDate>Wed, 01 Mar 2023 08:00:00 +0000</pubDate>
+      
+      <guid>https://data-apis.org/blog/array_api_v2022_release/</guid>
+      <description>Today marks another significant milestone for the Consortium for Python Data API Standards. We&amp;rsquo;re excited to announce the release of the 2022 revision of the Array API Standard. This release is a culmination of extensive discussion and coordination among array libraries to build on the initial 2021 release of the Array API Standard and to continue reaching consensus on unified API design and behavior among array libraries within the PyData ecosystem.</description>
+    </item>
+    
     <item>
       <title>First release of the Array API Standard</title>
       <link>https://data-apis.org/blog/array_api_standard_release/</link>
