@@ -1,5 +1,5 @@
 +++
-date = "2023-02-28T08:00+00:00"
+date = "2023-03-01T08:00:00+00:00"
 author = "Athan Reines"
 title = "2022 release of the Array API Standard"
 tags = ["APIs", "standard", "consortium", "arrays", "community"]
@@ -15,7 +15,11 @@ Multi-dimensional arrays (a.k.a. tensors) are the fundamental data structure for
 
 ## Brief Timeline
 
-The Consortium was established in May, 2020, and work immediately began to identify key pain points among array libraries and to research usage patterns to help inform future API design. In the fall of 2020, we released an initial draft of the array API specification and sought input from broader PyData ecosystem during an extended community review period. 
+The Consortium was established in May, 2020, and work immediately began to
+identify key pain points among array libraries and to research usage patterns
+to help inform future API design. In the fall of 2020, we released an initial
+draft of the array API specification and sought input from the broader PyData
+ecosystem during an extended community review period.
 
 During the community review period, we incorporated community feedback and continued iterating on existing API design. To facilitate community adoption of the array API standard, we worked with the NumPy community to implement a conforming reference implementation. The CuPy, PyTorch, and MXNet communities built upon this work and soon began efforts to adopt the array API in their own array libraries.
 
