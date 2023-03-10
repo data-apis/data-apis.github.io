@@ -88,7 +88,7 @@ their own libraries and device support steadily increased.
 
 During our work on the 2021 revision, standardizing complex number behavior was
 one of the top requests from the community; however, array libraries, such as
-CuPy and PyTorch, were still in the process of adding full complex number
+PyTorch, were still in the process of adding full complex number
 support across their APIs. Given the still evolving landscape across the
 ecosystem, we wanted to avoid prematurely constraining API design before full
 consideration of the real-world experience gained while attempting to support
