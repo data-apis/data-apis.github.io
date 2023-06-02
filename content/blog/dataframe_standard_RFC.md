@@ -5,7 +5,7 @@ title = "Want to super-charge your library by writing dataframe-agnostic code? W
 tags = ["APIs", "standard", "consortium", "dataframes", "community", "pandas", "polars", "cudf", "modin", "vaex", "koalas", "ibis", "dask"]
 categories = ["Consortium", "Standardization"]
 description = "An RFC for a dataframe API Standard"
-draft = true
+draft = false
 weight = 40
 +++
 
@@ -94,7 +94,7 @@ def remove_outliers(df, column):
 This will work, as if by magic, on any dataframe with a Standard-compliant implementation.
 But it's not magic, of course, it's the power of standardisation!
 
-## Standard Philosophy - will all dataframe libraries have the same API one day?
+## The Standard's philosophy - will all dataframe libraries have the same API one day?
 
 Let's start with what this isn't: the Standard isn't an attempt to force all dataframe
 libraries to have the same API. It also isn't a way to convert
@@ -112,12 +112,12 @@ code are expected to greatly benefit from this, as are their users.
 If you're a casual user, then probably not.
 The Dataframe Standard is currently mainly targeted towards library developers,
 who wish to support multiple dataframe libraries. Users of non-pandas dataframe
-would then be able to seamlessly use the dataframe tools (e.g. visualisation,
-feature engineering, data cleaning) without having to do any expensive data
-conversions.
+libraries would then be able to seamlessly use the Python packages which
+provide functionality for dataframes (e.g. visualisation, feature engineering,
+data cleaning) without having to do any expensive data conversions.
 
 If you're a library author, then we'd love to hear from you. Would this be
-useful to you? We expect it to, as the demand for dataframe-agnostic tools
+useful to you? We expect it to be, as the demand for dataframe-agnostic tools
 certainly seems to be there:
 - https://github.com/mwaskom/seaborn/issues/3277,
 - https://github.com/scikit-learn/scikit-learn/issues/25896
@@ -126,11 +126,16 @@ certainly seems to be there:
 
 ## Are we there yet? What lies ahead?
 
-No, not yet. This is just a first draft, and a request for comments.
+This is just a first draft, based on design discussions between authors from various
+dataframe libraries, and a request for comments (RFC). Our goal is to solicit input
+from a wider range of potential stakeholders, and evolve the Standard throughout
+the rest of 2023, resulting in a first official release towards the end of the year.
 
 Future plans include:
-- increasing the scope of the Standard (currently, the spec is very minimal);
-- creating implementations of the Standard for several major dataframe libraries;
+- increasing the scope of the Standard based on real-world code from widely used
+  packages (currently, the spec is very minimal);
+- creating implementations of the Standard for several major dataframe libraries 
+  (initially available as a separate ``dataframe-api-compat`` package);
 - creating a cross-dataframe test-suite;
 - aiming to ensure each major dataframe library has a `__dataframe_standard__` method.
 
@@ -142,5 +147,6 @@ what plans lie ahead - the Standard is in active development, so please watch th
 
 ## Resources
 
-- Read more on the [official website](https://data-apis.org/dataframe-api/)
+- Read more and contribute to the discussion on the
+  [official website](https://data-apis.org/dataframe-api/)
 - Try out the [proof-of-concept implementation for pandas and polars](https://github.com/MarcoGorelli/impl-dataframe-api)!
