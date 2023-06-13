@@ -147,6 +147,5 @@ what plans lie ahead - the Standard is in active development, so please watch th
 
 ## Resources
 
-- Read more and contribute to the discussion on the
-  [official website](https://data-apis.org/dataframe-api/)
+- Read more on the [official website](https://data-apis.org/dataframe-api/), and contribute to the discussion on the [GitHub repo](https://github.com/data-apis/dataframe-api)
 - Try out the [proof-of-concept implementation for pandas and polars](https://github.com/MarcoGorelli/impl-dataframe-api)!
