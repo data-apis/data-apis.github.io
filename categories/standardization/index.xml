@@ -6,7 +6,7 @@
     <description>Recent content in Standardization on Consortium for Python Data API Standards</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Mar 2023 08:00:00 +0000</lastBuildDate><atom:link href="https://data-apis.org/categories/standardization/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 25 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://data-apis.org/categories/standardization/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>2022 release of the Array API Standard</title>
       <link>https://data-apis.org/blog/array_api_v2022_release/</link>
@@ -23,6 +23,16 @@
       
       <guid>https://data-apis.org/blog/array_api_standard_release/</guid>
       <description>Array and tensor libraries - from NumPy, TensorFlow and PyTorch to Dask, JAX, MXNet and beyond - could benefit greatly from a uniform API for creating and working with multi-dimensional arrays (a.k.a tensors), as we discussed in our previous blog post. Today we&amp;rsquo;re pleased to announce a first version of our array API standard (document, repo) for review by the wider community. Getting to this point took slightly longer than we had initially announced because, well, it&amp;rsquo;s 2020 and hence nothing quite goes according to plan.</description>
+    </item>
+    
+    <item>
+      <title>Want to super-charge your library by writing dataframe-agnostic code? We&#39;d love to hear from you</title>
+      <link>https://data-apis.org/blog/dataframe_standard_rfc/</link>
+      <pubDate>Thu, 25 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://data-apis.org/blog/dataframe_standard_rfc/</guid>
+      <description>Tired of getting lost in if-then statements when dealing with API differences between dataframe libraries? Would you like to be able to write your code once, have it work with all major dataframe libraries, and be done? Let&amp;rsquo;s learn about an initiative which will enable you to write cross-dataframe code - no special-casing nor data conversions required!
+Why would I want this anyway? Say you want to write a function which selects rows of a dataframe based on the z-score of a given column, and you want it to work with any dataframe library.</description>
     </item>
     
     <item>

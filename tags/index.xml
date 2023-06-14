@@ -6,13 +6,121 @@
     <description>Recent content in Tags on Consortium for Python Data API Standards</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Mar 2023 08:00:00 +0000</lastBuildDate><atom:link href="https://data-apis.org/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 25 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://data-apis.org/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>APIs</title>
       <link>https://data-apis.org/tags/apis/</link>
-      <pubDate>Wed, 01 Mar 2023 08:00:00 +0000</pubDate>
+      <pubDate>Thu, 25 May 2023 00:00:00 +0000</pubDate>
       
       <guid>https://data-apis.org/tags/apis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>community</title>
+      <link>https://data-apis.org/tags/community/</link>
+      <pubDate>Thu, 25 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://data-apis.org/tags/community/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>consortium</title>
+      <link>https://data-apis.org/tags/consortium/</link>
+      <pubDate>Thu, 25 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://data-apis.org/tags/consortium/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cudf</title>
+      <link>https://data-apis.org/tags/cudf/</link>
+      <pubDate>Thu, 25 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://data-apis.org/tags/cudf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dask</title>
+      <link>https://data-apis.org/tags/dask/</link>
+      <pubDate>Thu, 25 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://data-apis.org/tags/dask/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dataframes</title>
+      <link>https://data-apis.org/tags/dataframes/</link>
+      <pubDate>Thu, 25 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://data-apis.org/tags/dataframes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ibis</title>
+      <link>https://data-apis.org/tags/ibis/</link>
+      <pubDate>Thu, 25 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://data-apis.org/tags/ibis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>koalas</title>
+      <link>https://data-apis.org/tags/koalas/</link>
+      <pubDate>Thu, 25 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://data-apis.org/tags/koalas/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>modin</title>
+      <link>https://data-apis.org/tags/modin/</link>
+      <pubDate>Thu, 25 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://data-apis.org/tags/modin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pandas</title>
+      <link>https://data-apis.org/tags/pandas/</link>
+      <pubDate>Thu, 25 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://data-apis.org/tags/pandas/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>polars</title>
+      <link>https://data-apis.org/tags/polars/</link>
+      <pubDate>Thu, 25 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://data-apis.org/tags/polars/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>standard</title>
+      <link>https://data-apis.org/tags/standard/</link>
+      <pubDate>Thu, 25 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://data-apis.org/tags/standard/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vaex</title>
+      <link>https://data-apis.org/tags/vaex/</link>
+      <pubDate>Thu, 25 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://data-apis.org/tags/vaex/</guid>
       <description></description>
     </item>
     
@@ -22,42 +130,6 @@
       <pubDate>Wed, 01 Mar 2023 08:00:00 +0000</pubDate>
       
       <guid>https://data-apis.org/tags/arrays/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>community</title>
-      <link>https://data-apis.org/tags/community/</link>
-      <pubDate>Wed, 01 Mar 2023 08:00:00 +0000</pubDate>
-      
-      <guid>https://data-apis.org/tags/community/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>consortium</title>
-      <link>https://data-apis.org/tags/consortium/</link>
-      <pubDate>Wed, 01 Mar 2023 08:00:00 +0000</pubDate>
-      
-      <guid>https://data-apis.org/tags/consortium/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>standard</title>
-      <link>https://data-apis.org/tags/standard/</link>
-      <pubDate>Wed, 01 Mar 2023 08:00:00 +0000</pubDate>
-      
-      <guid>https://data-apis.org/tags/standard/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>dataframes</title>
-      <link>https://data-apis.org/tags/dataframes/</link>
-      <pubDate>Tue, 24 Aug 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://data-apis.org/tags/dataframes/</guid>
       <description></description>
     </item>
     

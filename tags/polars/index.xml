@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>polars on Consortium for Python Data API Standards</title>
+    <link>https://data-apis.org/tags/polars/</link>
+    <description>Recent content in polars on Consortium for Python Data API Standards</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 25 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://data-apis.org/tags/polars/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Want to super-charge your library by writing dataframe-agnostic code? We&#39;d love to hear from you</title>
+      <link>https://data-apis.org/blog/dataframe_standard_rfc/</link>
+      <pubDate>Thu, 25 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://data-apis.org/blog/dataframe_standard_rfc/</guid>
+      <description>Tired of getting lost in if-then statements when dealing with API differences between dataframe libraries? Would you like to be able to write your code once, have it work with all major dataframe libraries, and be done? Let&amp;rsquo;s learn about an initiative which will enable you to write cross-dataframe code - no special-casing nor data conversions required!
+Why would I want this anyway? Say you want to write a function which selects rows of a dataframe based on the z-score of a given column, and you want it to work with any dataframe library.</description>
+    </item>
+    
+  </channel>
+</rss>
