@@ -21,13 +21,18 @@ relativeURLs = true
 
 [[menu.main]]
     name = "Blog"
-    weight = -100
+    weight = -60
     url = "/blog/"
 
 [[menu.main]]
     name = "Array API"
     weight = -100
     url = "https://data-apis.org/array-api/latest/"
+
+[[menu.main]]
+    name = "DataFrame API"
+    weight = -90
+    url = "https://data-apis.org/dataframe-api/draft/"
 
 [[menu.main]]
     name = "Annual reports"
