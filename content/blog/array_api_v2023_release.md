@@ -18,7 +18,7 @@ on unified API design and behavior. We're particularly excited to share that
 this year marked a significant milestone in our efforts to facilitate array
 interoperation within the PyData ecosystem, as we witnessed accelerated
 adoption of the standard, especially among downstream libraries, such as
-[SciPy](https://docs.scipy.org/doc/scipy//dev/api-dev/array_api.html)] and
+[SciPy](https://docs.scipy.org/doc/scipy//dev/api-dev/array_api.html) and
 [scikit-learn](https://scikit-learn.org/stable/modules/array_api.html).
 
 ## Brief Background
