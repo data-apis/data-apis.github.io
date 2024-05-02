@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta name="generator" content="Hugo 0.97.0" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> 2023 release of the Array API Standard </title>
+
+  
+  <meta name="description" content="The 2023 revision of the array API standard has been finalized and is ready for adoption by conforming array libraries."> 
+  
+  
+  
+  
+  
+
+  
+
+  <meta name="author" content="Athan Reines">
+
+
+  <meta property="og:title" content="2023 release of the Array API Standard" />
+<meta property="og:description" content="The 2023 revision of the array API standard has been finalized and is ready for adoption by conforming array libraries." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://data-apis.org/blog/array_api_v2023_release/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2024-04-08T08:00:00+00:00" />
+<meta property="article:modified_time" content="2024-04-08T08:00:00+00:00" />
+
+
+  
+
+
+
+
+  
+  
+  
+  
+  
+
+  <link rel="canonical" href="https://data-apis.org/blog/array_api_v2023_release/">  
+
+  <link rel="icon" href="../../images/icon.png">
+
+  <link href="../../css/font.css" rel="stylesheet" type="text/css">
+  <link href="../../css/kube.min.css" rel="stylesheet" type="text/css">
+  <link href="../../css/kube.legenda.css" rel="stylesheet" type="text/css">
+  <link href="../../css/highlight.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/default.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="../../css/master.css" rel="stylesheet" type="text/css">
+  <link href="../../css/kube.demo.css" rel="stylesheet" type="text/css">
+
+ <link href="../../css/custom.css" rel="stylesheet" type="text/css">
+
+  <script src="../../js/jquery-2.1.4.min.js" type="text/javascript">
+  </script>
+
+  <script type="text/javascript" src="../../js/tocbot.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+</head>
+
+
+<body class="page-kube">
+  <header> <div class="show-sm">
+    <div id="nav-toggle-box">
+      <div id="nav-toggle-brand">
+        <a href="../../">Consortium for Python Data API Standards</a>
+      </div><a data-component="toggleme" data-target="#top" href="#" id="nav-toggle"><i class="kube-menu"></i></a>
+    </div>
+  </div>
+  <div class="hide-sm" id="top">
+    <div id="top-brand">
+      <a href="../../">
+          <img src="../../images/dark_blue_logo.png">
+      </a>
+    </div>
+    <nav id="top-nav-main">
+      <ul>
+       
+       
+    <li><a href="https://data-apis.org/array-api/latest/" >Array API</a></li>
+    
+    <li><a href="https://data-apis.org/dataframe-api/draft/" >DataFrame API</a></li>
+    
+    <li><a href="../../blog/" >Blog</a></li>
+    
+    <li><a href="../../annual-reports/" >Annual reports</a></li>
+    
+      </ul>
+    </nav>
+    <nav id="top-nav-extra">
+      <ul>
+        
+      </ul>
+    </nav>
+  </div>
+ </header>
+  <main>
+<div class="push-center" itemscope itemtype="http://schema.org/BlogPosting">
+    <meta itemprop="name" content="2023 release of the Array API Standard">
+<meta itemprop="description" content="The 2023 revision of the array API standard has been finalized and is ready for adoption by conforming array libraries."><meta itemprop="datePublished" content="2024-04-08T08:00:00+00:00" />
+<meta itemprop="dateModified" content="2024-04-08T08:00:00+00:00" />
+<meta itemprop="wordCount" content="2017">
+<meta itemprop="keywords" content="APIs,standard,consortium,arrays,community," />
+<div id="hero">
+    <h1 itemprop="headline">  2023 release of the Array API Standard</h1>
+    
+<blockquote itemprop="description">The 2023 revision of the array API standard has been finalized and is ready for adoption by conforming array libraries.</blockquote>
+
+<time class="post-time"><span class="icon">
+  <i class="fa fa-clock-o" aria-hidden="true"></i>
+</span>
+<span>10 minute read</span>
+<span class="icon">
+ <i class="fa fa-pencil" aria-hidden="true"></i>
+</span>
+
+  Published: <time datetime="2024-04-08T08:00:00&#43;00:00">8 Apr, 2024</time>
+
+</time>
+</div>
+<div id="post-box">
+<div id="post" itemprop="articleBody">
+    
+    <p>Another year, another revision of the Array API Standard! We&rsquo;re proud to
+announce the release of the 2023 revision of the Array API Standard. As was the
+case for <a href="https://data-apis.org/blog/array_api_v2022_release/">2022 revision</a>,
+this release required extensive discussion and collaboration among array
+libraries and their downstream stakeholders as we continued reaching consensus
+on unified API design and behavior. We&rsquo;re particularly excited to share that
+this year marked a significant milestone in our efforts to facilitate array
+interoperation within the PyData ecosystem, as we witnessed accelerated
+adoption of the standard, especially among downstream libraries, such as
+[SciPy[(https://docs.scipy.org/doc/scipy//dev/api-dev/array_api.html)] and
+<a href="https://scikit-learn.org/stable/modules/array_api.html">scikit-learn</a>.</p>
+<h2 id="brief-background">Brief Background</h2>
+<p>For those who are not yet familiar with the Consortium and the Array API
+Standard, a bit of background. Our aim is to standardize the fundamental
+building blocks of scientific computation: multi-dimensional arrays (a.k.a.
+tensors). The PyData ecosystem has a rich set of libraries for working with
+arrays, including NumPy, CuPy, Dask, PyTorch, JAX, TensorFlow, oneAPI, and
+beyond. Historically, interoperation among array libraries has been challenging
+due to divergent API designs and subtle variation in behavior such that code
+written for one array library cannot be readily ported to another array
+library. To address these challenges, the <a href="https://data-apis.org/blog/announcing_the_consortium/">Consortium for Python Data API
+Standards</a> was
+established to facilitate coordination among array and dataframe library
+maintainers, sponsoring organizations, and key stakeholders and to provide a
+transparent and inclusive process&ndash;with input from the broader Python
+community&ndash;for standardizing array API design.</p>
+<p>Soon after formation of the Consortium in May 2020, we released an <a href="https://data-apis.org/blog/array_api_standard_release/">initial
+draft</a> of the array API
+specification and sought input from the broader PyData ecosystem during an
+extended community review period. Throughout 2021, we engaged in a tight
+feedback loop with array API adopters to refine and improve the initial draft
+specification.</p>
+<p>During this time, we reached three key milestones. First, we introduced a data
+interchange protocol based on <a href="https://github.com/dmlc/dlpack">DLPack</a> to
+facilitate zero-copy memory exchange between array libraries. Second, we
+standardized a core set of API designs for array creation, mutation, and
+element-wise computation. Third, we introduced &ldquo;extensions&rdquo;, which are defined
+as coherent sets of functionality that are commonly implemented across array
+libraries, but which conforming array libraries may choose not to implement.
+The first extension we included in the specification was the <code>linalg</code>
+extension, which defines a set of linear algebra APIs for computing
+eigenvalues, performing singular value decomposition, solving a system of
+linear equations, and other linear algebra operations.</p>
+<p>Building on the success of the 2021 revision of the Array API Standard, we
+worked throughout 2022 on a subsequent specification revision with two key
+objectives: standardize complex number support and standardize an extension for
+Fast Fourier Transforms (FFTs). These efforts culminated in the <a href="https://data-apis.org/blog/array_api_v2022_release/">2022
+revision</a> of the Array API
+Standard, along with significant advancements in tooling to support
+specification adoption. Importantly, we released 1) a comprehensive portable
+<a href="https://github.com/data-apis/array-api-tests">test suite</a> built on Pytest and
+Hypothesis for testing Array API Standard compliance and 2) an <a href="https://github.com/data-apis/array-api-compat">array
+compatibility layer</a> which
+provides a small wrapper around existing array libraries to ensure Array API
+Standard compliant behavior.</p>
+<p>With the 2022 revision out of the way, we summarized our work to date,
+publishing in <em>SciPy Proceedings</em> the paper <a href="https://proceedings.scipy.org/articles/018d8c34-e9ca-7105-9366-a050cc18b214">&ldquo;Python Array API Standard: Toward
+Array Interoperability in the Scientific Python Ecosystem&rdquo;</a>.
+Needless to say, it was a busy three years!</p>
+<h2 id="2023-revision">2023 Revision</h2>
+<p>Not wanting to rest on our laurels, immediately after tagging the 2022 release
+we got busy working on the <a href="https://github.com/data-apis/array-api/blob/91ff864decaef09a7fcca28a4b65de3c5f765d5f/CHANGELOG.md#v202312">2023 revision</a>
+with a singular goal: eliminate any and all barriers to adoption. While achieving
+buy-in from array libraries across the ecosystem marked a significant achievement,
+what is critical for the long-term success of this collective effort is driving
+adoption among downstream libraries, such as SciPy, scikit-learn, and others,
+in order to achieve our stated goal of facilitating interoperability among
+array libraries.</p>
+<p>To this end, we solicited feedback from downstream adopters regarding missing
+APIs, pain points, and general blind spots. During our discussions, we made
+three key observations. First, for a small subset of APIs, the behavior
+required by the standard did not match the reality on the ground, and we needed
+to revise the standard in order to ensure array libraries and their consumers
+could both achieve compliance <strong>and</strong> maintain backward compatibility. Second,
+we noticed a common set of operations which downstream adopters kept needing
+and for which they were implementing inefficient workarounds, thus making these
+operations excellent candidates for standardization. And lastly, we found that
+downstream adopters needed robust and portable mechanisms for inspecting
+library and device capabilities.</p>
+<h3 id="breaking-changes">Breaking Changes</h3>
+<p>To address our first observation, we made two breaking changes to the 2022
+revision of the standard. First, we revised the guidance for type promotion in
+<code>prod</code>, <code>sum</code>, and <code>linalg.trace</code> such that, by default, input arrays having
+floating-point data types are not upcasted to higher precision. The previous
+guidance reflected the concern that summation of large arrays having low
+precision could easily lead to overflow. While this concern is certainly valid
+for arrays having integer data types (e.g., <code>int8</code> and <code>int16</code>), this is less
+of a concern for floating-point data types which can typically handle a larger
+range of values and have a natural overflow value in infinity.</p>
+<p>Second, we revised the guidance for portable input and output data types in FFT
+APIs. One of the specification&rsquo;s overriding design principles is requiring
+users to be explicit about their intent. In the 2022 revision, we failed to
+fully adhere to this principle in the FFT APIs, leading to ambiguity of
+acceptable return types and the potential for undesired automatic upcasting of
+real-valued arrays to complex-valued arrays. We thus sought to correct this
+deficiency and subsequently backported the changes to the 2022 revision.</p>
+<h3 id="new-additions">New Additions</h3>
+<p>To address our second observation, we identified and standardized several new
+APIs to ensure portable behavior among conforming array libraries.</p>
+<ul>
+<li><code>clip</code>: clamps each element of an array to a specified range.</li>
+<li><code>copysign</code>: composes a floating-point value from a magnitude and sign.</li>
+<li><code>cumulative_sum</code>: calculates the cumulative sum.</li>
+<li><code>hypot</code>: computes the square root of the sum of squares.</li>
+<li><code>maximum</code>: computes the maximum value for each element of an array relative
+to the respective element in another array.</li>
+<li><code>minimum</code>: computes the minimum value for each element of an array relative
+to the respective element in another array.</li>
+<li><code>moveaxis</code>: moves array axes to new positions.</li>
+<li><code>repeat</code>: repeats each element of an array a specified number of times.</li>
+<li><code>searchsorted</code>: finds insertion positions such that sorted order would be
+preserved.</li>
+<li><code>signbit</code>: determines whether the sign bit is set for each element in an
+array.</li>
+<li><code>tile</code>: constructs an array by tiling another array.</li>
+<li><code>unstack</code>: splits an array into a sequence of arrays along a given axis.</li>
+</ul>
+<h3 id="inspection-apis">Inspection APIs</h3>
+<p>To address our third observation, we recognized that downstream library
+adopters needed more robust mechanisms for determining library and associated
+device capabilities. For libraries such as SciPy and scikit-learn who want to
+support array objects from multiple libraries, having a set of standardized
+top-level APIs is not sufficient. In order to devise concise mitigation
+strategies and gracefully handle varying hardware capabilities, having a means
+for reliably ascertaining device heterogeneity is critical. Accordingly, we
+worked to standardize inspection APIs to allow answering the following
+questions:</p>
+<ul>
+<li>does a library support boolean indexing and data-dependent output shapes?</li>
+<li>how can one portably obtain a library&rsquo;s list of supported devices?</li>
+<li>what is a library&rsquo;s default device?</li>
+<li>what data types does a library support?</li>
+<li>what are a library&rsquo;s default data types?</li>
+<li>what data types does a specific device support?</li>
+</ul>
+<p>After considerable discussion and coordination among array libraries and
+downstream stakeholders, we coalesced around an inspection API namespace</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">info</span> <span class="o">=</span> <span class="n">xp</span><span class="o">.</span><span class="n">__array_namespace_info__</span><span class="p">()</span>
+</span></span></code></pre></div><p>with the following initial set of APIs:</p>
+<ul>
+<li><code>capabilities</code>: returns a dictionary of array library capabilities.</li>
+<li><code>default_device</code>: returns the default device.</li>
+<li><code>default_types</code>: returns a dictionary containing default data types.</li>
+<li><code>dtypes</code>: returns a dictionary containing supported data types specific to
+a given device.</li>
+<li><code>devices</code>: returns a list of supported devices.</li>
+</ul>
+<p>While these APIs may seem trivial on their surface, the reality is that array
+libraries have often lacked easy and portable programmatic access to data type
+and device information. We thus consider this outcome significant progress, and
+we&rsquo;re particularly eager to hear from downstream library authors what other
+capabilities they would find useful to query.</p>
+<h2 id="facilitating-array-api-adoption">Facilitating Array API Adoption</h2>
+<p>As mentioned above, 2023 was all about adoption, and adoption requires buy-in
+from both array libraries and the downstream consumers of those libraries.
+Adoption thus faces two key challenges. First, to facilitate development, array
+libraries need a robust mechanism for determining whether they are
+specification compliant. Second, while array libraries work to become fully
+specification compliant, downstream libraries need to be able to target a
+stable compatibility layer in order to smooth over subtle differences in array
+library behavior.</p>
+<h3 id="test-suite">Test Suite</h3>
+<p>To address the first challenge, we&rsquo;ve continued to develop a comprehensive
+portable <a href="https://github.com/data-apis/array-api-tests">test suite</a> built on
+Pytest and Hypothesis for testing Array API Standard compliance. In addition to
+the 2022 revision, the test suite has been updated to support the most recent
+2023 revision.</p>
+<h3 id="compatibility-layer">Compatibility Layer</h3>
+<p>To address the second challenge, we&rsquo;ve continued work on an <a href="https://github.com/data-apis/array-api-compat">array
+compatibility layer</a> which
+provides a small wrapper around existing array libraries to ensure Array API
+Standard compliant behavior. We&rsquo;re proud to announce that, in addition to
+support for NumPy, CuPy, and PyTorch, we&rsquo;ve added support for
+<a href="https://github.com/data-apis/array-api-compat/pull/76">Dask</a> and
+<a href="https://github.com/data-apis/array-api-compat/pull/84">JAX</a>.</p>
+<p>To get started, install from <a href="https://pypi.org/project/array-api-compat/">PyPI</a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pip install array-api-compat
+</span></span></code></pre></div><p>and take it for a spin! If you encounter any issues, please be sure to let us
+know over on the library issue <a href="https://github.com/data-apis/array-api-compat/issues">tracker</a>.</p>
+<h2 id="adoption-milestones">Adoption Milestones</h2>
+<p>Array libraries, such as NumPy, CuPy, PyTorch, JAX, and oneAPI, have continued
+work toward achieving full API compliance, which is a significant milestone in
+and of itself. But it&rsquo;s all for naught if array library consumers are not able
+to reap the benefits of standardization. Needless to say, we&rsquo;ve seen
+significant uptake of the Array API Standard among downstream libraries. In
+particular, both <a href="https://docs.scipy.org/doc/scipy//dev/api-dev/array_api.html">SciPy</a>
+and <a href="https://scikit-learn.org/stable/modules/array_api.html">sckit-learn</a> have
+added experimental support, thus enabling support for both CPU and GPU tensors
+and marking a big win for end users. For the curious reader, we discussed some
+of the performance benefits in our recent <a href="https://proceedings.scipy.org/articles/018d8c34-e9ca-7105-9366-a050cc18b214">paper</a>
+published in <em>SciPy Proceedings</em> (2023).</p>
+<h3 id="numpy">NumPy</h3>
+<p>One development that is especially noteworthy is the adoption of the Array API
+Standard in the main namespace of <a href="https://numpy.org/devdocs/release/2.0.0-notes.html">NumPy 2.0</a>.
+When we originally formed the Consortium and began the work of standardization,
+we didn&rsquo;t know exactly how array libraries would prefer to adopt an eventual
+array API standard. Would they adopt it in their main namespace? Or would they
+prefer to avoid potentially breaking backward compatibility and implement in a
+strictly compliant sub-namespace?</p>
+<p>We wrote the specification with both possibilities in mind. NumPy and its kin
+went down the sub-namespace path, while libraries such as PyTorch opted for
+their main namespace. Well, after a few years of experimentation, the NumPy
+community decided that they liked the standard so much that relegating a
+strictly compliant implementation to a sub-namespace was not enough, and
+subsequently sought to apply the API design principles not just to standardized
+APIs in their main namespace, but across all of NumPy. This is a significant
+win for portability, and we&rsquo;re excited for the benefits NumPy 2.0 will bring to
+downstream libraries and the PyData ecosystem at large.</p>
+<h2 id="the-road-ahead">The Road Ahead</h2>
+<p>Phew! That&rsquo;s a lot, and you&rsquo;ve made it this far! So what&rsquo;s in store for 2024?!
+Glad you asked. Nothing too different from the year before. We&rsquo;re planning on
+staying the course, focusing on adoption, and continuing to address the gaps
+and pain points identified by downstream libraries.</p>
+<p>In addition to normal specification work, we&rsquo;re particularly keen on developing
+more robust tools for specification compliance and monitoring. Based on
+feedback we&rsquo;ve received from downstream libraries, there&rsquo;s still a lack of
+transparency around which APIs are supported and what are the potential edge
+cases. We have some ideas for how to increase visibility and will have more to
+share in the months to come.</p>
+<p>Long story short, we&rsquo;re excited for the year ahead, and we&rsquo;d love to get your
+feedback! To provide feedback on the Array API Standard, please open issues or
+pull requests on <a href="https://github.com/data-apis/array-api">https://github.com/data-apis/array-api</a>, and come participate
+in our public <a href="https://github.com/data-apis/array-api/discussions">discussions</a>.</p>
+<p>Cheers!</p>
+
+
+</div>
+
+    <div class="">
+        <p>
+  Published
+  
+    
+      by <span itemprop="author">Athan Reines</span>
+    
+  
+  <time datetime="2024-04-08T08:00:00&#43;00:00">
+    8 Apr, 2024
+  </time>
+  
+    in <span itemprop="articleSection"><a href="../../categories/consortium/">Consortium</a> and <a href="../../categories/standardization/">Standardization</a></span>
+  
+  
+    and tagged <a href="../../tags/apis/">APIs</a>, <a href="../../tags/arrays/">arrays</a>, <a href="../../tags/community/">community</a>, <a href="../../tags/consortium/">consortium</a> and <a href="../../tags/standard/">standard</a>
+  
+  using <span itemprop="wordCount">2017</span> words.
+</p>
+
+        
+  
+
+
+
+  <aside>
+    <heade><strong>Related Content</strong></header>
+    <hr>
+    <ul>
+      
+      
+        <li><a href="../../blog/array_api_v2022_release/">2022 release of the Array API Standard</a> &ndash; 8 minutes
+      
+        <li><a href="../../blog/array_api_standard_release/">First release of the Array API Standard</a> &ndash; 7 minutes
+      
+        <li><a href="../../blog/announcing_the_consortium/">Announcing the Consortium for Python Data API Standards</a> &ndash; 11 minutes
+      
+        <li><a href="../../blog/dataframe_standard_rfc/">Want to super-charge your library by writing dataframe-agnostic code? We&#39;d love to hear from you</a> &ndash; 5 minutes
+      
+        <li><a href="../../blog/dataframe_protocol_rfc/">Towards dataframe interoperability</a> &ndash; 8 minutes
+      
+    </ul>
+  </aside>
+
+
+    </div>
+    
+    
+    
+</div>
+</div>
+</main>
+  <footer>   <footer id="footer">
+    <nav>
+      <ul>
+        <li><span>Consortium</span></li>
+        <li>
+          <a href="../../blog/">Blog</a>
+        </li>
+        <li>
+          <a href="https://data-apis.org/array-api/latest/">Array API</a>
+        </li>
+        <li>
+          <a href="https://github.com/data-apis">GitHub</a>
+        </li>
+          <li>
+          <a href="https://github.com/data-apis/governance/blob/main/consortium_governance.md">Governance</a>
+        </li>
+          <li>
+          <a href="https://github.com/data-apis/.github/blob/main/CODE_OF_CONDUCT.md">Code of Conduct</a>
+        </li>
+      </ul>
+    </nav>
+    <p>&copy Consortium Members; Licence MIT.</p>
+  </footer>
+ </footer>
+
+
+  <script src="../../js/kube.js" type="text/javascript">
+  </script>
+  <script src="../../js/kube.legenda.js" type="text/javascript">
+  </script>
+  <script src="../../js/master.js" type="text/javascript">
+  </script>
+</body>
+
+</html>
