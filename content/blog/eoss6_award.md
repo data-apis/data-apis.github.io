@@ -1,19 +1,19 @@
 +++
-date = "2024-10-28T08:00:00+00:00"
+date = "2024-11-11T08:00:00+00:00"
 author = "Athan Reines"
 title = "CZI EOSS 6 Award to Advance Array Interoperability within the PyData Ecosystem"
 tags = ["APIs", "standard", "consortium", "arrays", "community", "funding", "czi", "eoss6"]
 categories = ["Consortium", "Standardization"]
-description = "Quansight was selected for a Chan Zuckerberg Initiative (CZI) EOSS Cycle 6 award to advance array interoperability within the PyData ecosystem."
+description = "The Chan Zuckerberg Initiative (CZI) awarded an EOSS Cycle 6 grant to the Data APIs Consortium to advance array interoperability within the PyData ecosystem."
 draft = false
 weight = 30
 +++
 
-We are thrilled to announce that Quansight was recently selected for a Chan
-Zuckerberg Initiative (CZI) Essential Open Source Software for Science
-(EOSS) Cycle 6 award to support ongoing work within the Consortium for Python
-Data API Standards to accelerate the adoption of the Array API Standard across
-the PyData ecosystem. With this award, we'll drive forward our vision of
+We are thrilled to announce that the Chan Zuckerberg Initiative (CZI) recently
+awarded the Consortium for Python Data API Standards an Essential Open Source
+Software for Science(EOSS) Cycle 6 grant to support ongoing work within the
+Consortium and to accelerate the adoption of the Array API Standard across the
+PyData ecosystem. With this award, we'll drive forward our vision of
 standardizing a universal API for array operations, enhancing library
 interoperability, and increasing accessibility to high-performance
 computational resources across scientific domains.
@@ -157,4 +157,5 @@ strengthen the foundations of the PyData ecosystem!
 
 This project has been made possible in part by grant number EOSS6-0000000621
 from the Chan Zuckerberg Initiative DAF, an advised fund of Silicon Valley
-Community Foundation.
+Community Foundation. Athan Reines is the grant's principal investigator and
+Quansight Labs is the entity receiving and executing on the grant.
