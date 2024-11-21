@@ -35,6 +35,11 @@ relativeURLs = true
     url = "https://data-apis.org/dataframe-api/draft/"
 
 [[menu.main]]
+    name = "DataFrame interchange protocol"
+    weight = -80
+    url = "https://data-apis.org/dataframe-protocol/latest/"
+
+[[menu.main]]
     name = "Annual reports"
     weight = -50
     url = "/annual-reports/"
