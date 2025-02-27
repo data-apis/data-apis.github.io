@@ -18,7 +18,7 @@ predictable developer experience. This year's update continues that mission
 with key enhancements, new features, and clarifications that reflect the needs
 of the community.
 
-## Key Enhancements in 2024.12
+## Key Enhancements in v2024.12
 
 ### Scalar Argument Support
 
