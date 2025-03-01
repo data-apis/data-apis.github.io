@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://data-apis.org/blog/array_api_v2024_release/</loc>
+    <lastmod>2025-02-27T08:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://data-apis.org/blog/eoss6_award/</loc>
     <lastmod>2024-11-11T08:00:00+00:00</lastmod>
   </url><url>
@@ -26,28 +29,37 @@
     <lastmod>2021-08-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://data-apis.org/tags/apis/</loc>
-    <lastmod>2024-11-11T08:00:00+00:00</lastmod>
+    <lastmod>2025-02-27T08:00:00+00:00</lastmod>
   </url><url>
     <loc>https://data-apis.org/tags/arrays/</loc>
-    <lastmod>2024-11-11T08:00:00+00:00</lastmod>
+    <lastmod>2025-02-27T08:00:00+00:00</lastmod>
   </url><url>
     <loc>https://data-apis.org/blog/</loc>
-    <lastmod>2024-11-11T08:00:00+00:00</lastmod>
+    <lastmod>2025-02-27T08:00:00+00:00</lastmod>
   </url><url>
     <loc>https://data-apis.org/categories/</loc>
-    <lastmod>2024-11-11T08:00:00+00:00</lastmod>
+    <lastmod>2025-02-27T08:00:00+00:00</lastmod>
   </url><url>
     <loc>https://data-apis.org/tags/community/</loc>
-    <lastmod>2024-11-11T08:00:00+00:00</lastmod>
+    <lastmod>2025-02-27T08:00:00+00:00</lastmod>
   </url><url>
     <loc>https://data-apis.org/tags/consortium/</loc>
-    <lastmod>2024-11-11T08:00:00+00:00</lastmod>
+    <lastmod>2025-02-27T08:00:00+00:00</lastmod>
   </url><url>
     <loc>https://data-apis.org/categories/consortium/</loc>
-    <lastmod>2024-11-11T08:00:00+00:00</lastmod>
+    <lastmod>2025-02-27T08:00:00+00:00</lastmod>
   </url><url>
     <loc>https://data-apis.org/</loc>
-    <lastmod>2024-11-11T08:00:00+00:00</lastmod>
+    <lastmod>2025-02-27T08:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://data-apis.org/tags/standard/</loc>
+    <lastmod>2025-02-27T08:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://data-apis.org/categories/standardization/</loc>
+    <lastmod>2025-02-27T08:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://data-apis.org/tags/</loc>
+    <lastmod>2025-02-27T08:00:00+00:00</lastmod>
   </url><url>
     <loc>https://data-apis.org/tags/czi/</loc>
     <lastmod>2024-11-11T08:00:00+00:00</lastmod>
@@ -56,15 +68,6 @@
     <lastmod>2024-11-11T08:00:00+00:00</lastmod>
   </url><url>
     <loc>https://data-apis.org/tags/funding/</loc>
-    <lastmod>2024-11-11T08:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://data-apis.org/tags/standard/</loc>
-    <lastmod>2024-11-11T08:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://data-apis.org/categories/standardization/</loc>
-    <lastmod>2024-11-11T08:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://data-apis.org/tags/</loc>
     <lastmod>2024-11-11T08:00:00+00:00</lastmod>
   </url><url>
     <loc>https://data-apis.org/tags/cudf/</loc>

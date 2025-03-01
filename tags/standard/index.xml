@@ -6,7 +6,16 @@
     <description>Recent content in standard on Consortium for Python Data API Standards</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 11 Nov 2024 08:00:00 +0000</lastBuildDate><atom:link href="https://data-apis.org/tags/standard/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 27 Feb 2025 08:00:00 +0000</lastBuildDate><atom:link href="https://data-apis.org/tags/standard/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2024 release of the Array API Standard</title>
+      <link>https://data-apis.org/blog/array_api_v2024_release/</link>
+      <pubDate>Thu, 27 Feb 2025 08:00:00 +0000</pubDate>
+      
+      <guid>https://data-apis.org/blog/array_api_v2024_release/</guid>
+      <description>Another year, another milestone! We&amp;rsquo;re excited to announce the release of the 2024 revision of the Array API Standard, the latest iteration of our ongoing efforts to unify and standardize array programming across the PyData ecosystem. Since the standard&amp;rsquo;s inception, our goal has been to facilitate interoperability between array libraries and enable a more consistent and predictable developer experience. This year&amp;rsquo;s update continues that mission with key enhancements, new features, and clarifications that reflect the needs of the community.</description>
+    </item>
+    
     <item>
       <title>CZI EOSS 6 Award to Advance Array Interoperability within the PyData Ecosystem</title>
       <link>https://data-apis.org/blog/eoss6_award/</link>
