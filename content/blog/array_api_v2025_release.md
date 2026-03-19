@@ -69,12 +69,12 @@ where small inconsistencies can propagate into larger correctness issues.
 Several new APIs have been introduced in this release to expand functionality
 and improve usability:
 
--   `broadcast_shapes`: broadcasts one or more shapes against one another.
--   `isin`: tests for each element in an array whether the element is in
+- `broadcast_shapes`: broadcasts one or more shapes against one another.
+- `isin`: tests for each element in an array whether the element is in
     another array.
--   `linalg.eig`: returns the eigenvalues and eigenvectors of a real or complex
+- `linalg.eig`: returns the eigenvalues and eigenvectors of a real or complex
     matrix.
--   `linalg.eigvals`: returns the eigenvalues of a real or complex matrix.
+- `linalg.eigvals`: returns the eigenvalues of a real or complex matrix.
 
 These additions further close the gap between the Array API standard and
 established numerical computing libraries.
