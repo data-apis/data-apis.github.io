@@ -9,9 +9,9 @@ draft = false
 weight = 30
 +++
 
-We're pleased to announce the 2025 revision of the Array API standard.
+We're pleased to announce the 2025 revision of the array API standard.
 
-Since its initial release in 2021, the Array API standard has aimed to reduce
+Since its initial release in 2021, the array API standard has aimed to reduce
 fragmentation across array libraries by defining a common, minimal interface
 for multidimensional array operations. Over the past several years, the
 standard has matured alongside its ecosystem, with increasing adoption across
@@ -34,7 +34,7 @@ implement and depend on.
 
 Over the past year, we've worked closely with maintainers of downstream
 libraries, such as SciPy, scikit-learn, and others, to identify friction points
-when targeting the Array API. In response, the 2025 revision includes:
+when targeting the array API. In response, the 2025 revision includes:
 
 - Clarifications to ambiguous or under-specified behaviors.
 - Improved consistency across related APIs.
@@ -45,7 +45,7 @@ and make it easier to write libraries that are backend-agnostic.
 
 ### Continued investment in consistency
 
-Consistency remains a core design principle of the Array API standard. In this
+Consistency remains a core design principle of the array API standard. In this
 revision, we've continued to refine naming, argument conventions, and behavior
 to ensure that APIs feel coherent and predictable. Where inconsistencies or
 surprising behaviors were identified in earlier versions, we've taken steps to
@@ -76,7 +76,7 @@ and improve usability:
     matrix.
 - `linalg.eigvals`: returns the eigenvalues of a real or complex matrix.
 
-These additions further close the gap between the Array API standard and
+These additions further close the gap between the array API standard and
 established numerical computing libraries.
 
 ### Breaking Changes
@@ -101,7 +101,7 @@ For a complete list of changes, please see the full changelog:
 
 ## Growing ecosystem adoption
 
-The Array API standard continues to see strong adoption across the scientific
+The array API standard continues to see strong adoption across the scientific
 Python ecosystem. Major array libraries have either implemented or are actively
 working toward compliance, and an increasing number of downstream libraries are
 using the standard as a portability layer. This enables users to write code once
@@ -114,7 +114,7 @@ libraries and user applications.
 
 ## Looking ahead
 
-As the Array API standard matures, our focus is shifting from defining the core
+As the array API standard matures, our focus is shifting from defining the core
 interface to ensuring long-term stability, usability, and ecosystem
 integration. Future work will continue to prioritize:
 
@@ -127,7 +127,7 @@ standard evolves in a way that reflects real-world usage and needs.
 
 ## Get involved
 
-The Array API standard is developed in the open, and we welcome feedback and
+The array API standard is developed in the open, and we welcome feedback and
 contributions from the community.
 
 - Specification: [https://data-apis.org/array-api/](https://data-apis.org/array-api/)
