@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta name="generator" content="Hugo 0.97.0" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> 2025 release of the Array API Standard </title>
+
+  
+  <meta name="description" content="The 2025 revision of the array API standard has been finalized and is ready for adoption by conforming array libraries."> 
+  
+  
+  
+  
+  
+
+  
+
+  <meta name="author" content="Athan Reines">
+
+
+  <meta property="og:title" content="2025 release of the Array API Standard" />
+<meta property="og:description" content="The 2025 revision of the array API standard has been finalized and is ready for adoption by conforming array libraries." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://data-apis.org/blog/array_api_v2025_release/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2025-03-26T08:00:00+00:00" />
+<meta property="article:modified_time" content="2025-03-26T08:00:00+00:00" />
+
+
+  
+
+
+
+
+  
+  
+  
+  
+  
+
+  <link rel="canonical" href="https://data-apis.org/blog/array_api_v2025_release/">  
+
+  <link rel="icon" href="../../images/icon.png">
+
+  <link href="../../css/font.css" rel="stylesheet" type="text/css">
+  <link href="../../css/kube.min.css" rel="stylesheet" type="text/css">
+  <link href="../../css/kube.legenda.css" rel="stylesheet" type="text/css">
+  <link href="../../css/highlight.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/default.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="../../css/master.css" rel="stylesheet" type="text/css">
+  <link href="../../css/kube.demo.css" rel="stylesheet" type="text/css">
+
+ <link href="../../css/custom.css" rel="stylesheet" type="text/css">
+
+  <script src="../../js/jquery-2.1.4.min.js" type="text/javascript">
+  </script>
+
+  <script type="text/javascript" src="../../js/tocbot.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+</head>
+
+
+<body class="page-kube">
+  <header> <div class="show-sm">
+    <div id="nav-toggle-box">
+      <div id="nav-toggle-brand">
+        <a href="../../">Consortium for Python Data API Standards</a>
+      </div><a data-component="toggleme" data-target="#top" href="#" id="nav-toggle"><i class="kube-menu"></i></a>
+    </div>
+  </div>
+  <div class="hide-sm" id="top">
+    <div id="top-brand">
+      <a href="../../">
+          <img src="../../images/dark_blue_logo.png">
+      </a>
+    </div>
+    <nav id="top-nav-main">
+      <ul>
+       
+       
+    <li><a href="https://data-apis.org/array-api/latest/" >Array API</a></li>
+    
+    <li><a href="https://data-apis.org/dataframe-api/draft/" >DataFrame API</a></li>
+    
+    <li><a href="../../blog/" >Blog</a></li>
+    
+    <li><a href="../../annual-reports/" >Annual reports</a></li>
+    
+      </ul>
+    </nav>
+    <nav id="top-nav-extra">
+      <ul>
+        
+      </ul>
+    </nav>
+  </div>
+ </header>
+  <main>
+<div class="push-center" itemscope itemtype="http://schema.org/BlogPosting">
+    <meta itemprop="name" content="2025 release of the Array API Standard">
+<meta itemprop="description" content="The 2025 revision of the array API standard has been finalized and is ready for adoption by conforming array libraries."><meta itemprop="datePublished" content="2025-03-26T08:00:00+00:00" />
+<meta itemprop="dateModified" content="2025-03-26T08:00:00+00:00" />
+<meta itemprop="wordCount" content="824">
+<meta itemprop="keywords" content="APIs,standard,consortium,arrays,community," />
+<div id="hero">
+    <h1 itemprop="headline">  2025 release of the Array API Standard</h1>
+    
+<blockquote itemprop="description">The 2025 revision of the array API standard has been finalized and is ready for adoption by conforming array libraries.</blockquote>
+
+<time class="post-time"><span class="icon">
+  <i class="fa fa-clock-o" aria-hidden="true"></i>
+</span>
+<span>4 minute read</span>
+<span class="icon">
+ <i class="fa fa-pencil" aria-hidden="true"></i>
+</span>
+
+  Published: <time datetime="2025-03-26T08:00:00&#43;00:00">26 Mar, 2025</time>
+
+</time>
+</div>
+<div id="post-box">
+<div id="post" itemprop="articleBody">
+    
+    <p>We&rsquo;re pleased to announce the 2025 revision of the array API standard.</p>
+<p>Since its initial release in 2021, the array API standard has aimed to reduce
+fragmentation across array libraries by defining a common, minimal interface
+for multidimensional array operations. Over the past several years, the
+standard has matured alongside its ecosystem, with increasing adoption across
+libraries such as NumPy, CuPy, PyTorch, JAX, and others.</p>
+<p>The 2025 revision marks another step forward in that evolution. This release
+focuses on improving usability, clarifying semantics, and addressing feedback
+from downstream libraries and users who are building on top of the standard.</p>
+<h2 id="whats-new-in-2025">What&rsquo;s new in 2025</h2>
+<p>This year&rsquo;s revision is less about expanding surface area and more about
+refinement. As adoption has grown, so too has the need to ensure that the
+specification is both practical and predictable in real-world usage.</p>
+<h3 id="smoother-edges-for-downstream-libraries">Smoother edges for downstream libraries</h3>
+<p>One of the primary goals of this revision is to make the standard easier to
+implement and depend on.</p>
+<p>Over the past year, we&rsquo;ve worked closely with maintainers of downstream
+libraries, such as SciPy, scikit-learn, and others, to identify friction points
+when targeting the array API. In response, the 2025 revision includes:</p>
+<ul>
+<li>Clarifications to ambiguous or under-specified behaviors.</li>
+<li>Improved consistency across related APIs.</li>
+<li>Better alignment between specification language and existing implementations.</li>
+</ul>
+<p>These changes reduce the amount of special-casing required in downstream code
+and make it easier to write libraries that are backend-agnostic.</p>
+<h3 id="continued-investment-in-consistency">Continued investment in consistency</h3>
+<p>Consistency remains a core design principle of the array API standard. In this
+revision, we&rsquo;ve continued to refine naming, argument conventions, and behavior
+to ensure that APIs feel coherent and predictable. Where inconsistencies or
+surprising behaviors were identified in earlier versions, we&rsquo;ve taken steps to
+resolve them while carefully balancing backward compatibility concerns.</p>
+<h3 id="expanded-and-clarified-semantics">Expanded and clarified semantics</h3>
+<p>As more libraries adopt the standard, subtle semantic mismatches become more
+visible. The 2025 revision addresses these by:</p>
+<ul>
+<li>Tightening definitions for edge cases.</li>
+<li>Clarifying broadcasting and type promotion behavior.</li>
+<li>Providing more precise guarantees around function outputs and error
+conditions.</li>
+</ul>
+<p>These improvements are especially important for authors of numerical libraries,
+where small inconsistencies can propagate into larger correctness issues.</p>
+<h3 id="new-api-additions">New API Additions</h3>
+<p>Several new APIs have been introduced in this release to expand functionality
+and improve usability:</p>
+<ul>
+<li><code>broadcast_shapes</code>: broadcasts one or more shapes against one another.</li>
+<li><code>isin</code>: tests for each element in an array whether the element is in
+another array.</li>
+<li><code>linalg.eig</code>: returns the eigenvalues and eigenvectors of a real or complex
+matrix.</li>
+<li><code>linalg.eigvals</code>: returns the eigenvalues of a real or complex matrix.</li>
+</ul>
+<p>These additions further close the gap between the array API standard and
+established numerical computing libraries.</p>
+<h3 id="breaking-changes">Breaking Changes</h3>
+<p>With progress comes necessary refinements. This year&rsquo;s update includes one
+significant breaking change:</p>
+<ul>
+<li><strong>Consistently return tuples rather than lists</strong>: Previously, for
+<code>broadcast_arrays</code>, <code>meshgrid</code>, and <code>__array_namespace_info__().devices</code>, the
+functions returned lists. Guidance has now been updated to require always
+returning tuples. Prior guidance originated from early specification
+discussions, and, since that time, array libraries have moved away from
+returning lists to always returning tuples. This change ensures that the
+specification matches ecosystem conventions and further ensures consistency
+throughout the specification.</li>
+</ul>
+<h3 id="changelog">Changelog</h3>
+<p>For a complete list of changes, please see the full changelog:</p>
+<p><a href="https://data-apis.org/array-api/latest/changelog.html">https://data-apis.org/array-api/latest/changelog.html</a></p>
+<h2 id="growing-ecosystem-adoption">Growing ecosystem adoption</h2>
+<p>The array API standard continues to see strong adoption across the scientific
+Python ecosystem. Major array libraries have either implemented or are actively
+working toward compliance, and an increasing number of downstream libraries are
+using the standard as a portability layer. This enables users to write code once
+and run it across multiple array backends, including CPU and GPU implementations.</p>
+<p>In parallel, the <a href="https://github.com/data-apis/array-api-extra"><code>array-api-extra</code></a>
+project continues to expand, providing higher-level utilities that build
+on top of the core specification and address common needs in downstream
+libraries and user applications.</p>
+<h2 id="looking-ahead">Looking ahead</h2>
+<p>As the array API standard matures, our focus is shifting from defining the core
+interface to ensuring long-term stability, usability, and ecosystem
+integration. Future work will continue to prioritize:</p>
+<ul>
+<li>Improving the developer experience for downstream libraries.</li>
+<li>Ensuring consistency across implementations.</li>
+<li>Expanding supporting tools and libraries around the standard.</li>
+</ul>
+<p>We remain committed to working closely with the community to ensure that the
+standard evolves in a way that reflects real-world usage and needs.</p>
+<h2 id="get-involved">Get involved</h2>
+<p>The array API standard is developed in the open, and we welcome feedback and
+contributions from the community.</p>
+<ul>
+<li>Specification: <a href="https://data-apis.org/array-api/">https://data-apis.org/array-api/</a></li>
+<li>GitHub: <a href="https://github.com/data-apis/array-api">https://github.com/data-apis/array-api</a></li>
+<li>Public calendar: <a href="https://calendar.google.com/calendar/embed?src=8fe9013a2cb5d3409bb236d04eca73fa5227eac01c02ea8f6bc4a6a3cf982fa3%40group.calendar.google.com">https://calendar.google.com/calendar/embed?src=8fe9013a2cb5d3409bb236d04eca73fa5227eac01c02ea8f6bc4a6a3cf982fa3%40group.calendar.google.com</a></li>
+</ul>
+<p>If you&rsquo;re building a library, experimenting with backend-agnostic code, or
+encountering challenges with the standard, we&rsquo;d love to hear from you.</p>
+<h2 id="acknowledgments">Acknowledgments</h2>
+<p>This release would not have been possible without the continued efforts of
+contributors across the scientific Python ecosystem. We&rsquo;re grateful to everyone
+who has provided feedback, implemented the standard, and helped move the
+project forward.</p>
+<h3 id="funding-acknowledgment">Funding Acknowledgment</h3>
+<p>This project has been made possible in part by grant number EOSS6-0000000621
+from the Chan Zuckerberg Initiative DAF, an advised fund of Silicon Valley
+Community Foundation. Athan Reines is the grant&rsquo;s principal investigator and
+Quansight, PBC is the entity receiving and executing on the grant.</p>
+
+
+</div>
+
+    <div class="">
+        <p>
+  Published
+  
+    
+      by <span itemprop="author">Athan Reines</span>
+    
+  
+  <time datetime="2025-03-26T08:00:00&#43;00:00">
+    26 Mar, 2025
+  </time>
+  
+    in <span itemprop="articleSection"><a href="../../categories/consortium/">Consortium</a> and <a href="../../categories/standardization/">Standardization</a></span>
+  
+  
+    and tagged <a href="../../tags/apis/">APIs</a>, <a href="../../tags/arrays/">arrays</a>, <a href="../../tags/community/">community</a>, <a href="../../tags/consortium/">consortium</a> and <a href="../../tags/standard/">standard</a>
+  
+  using <span itemprop="wordCount">824</span> words.
+</p>
+
+        
+  
+
+
+
+  <aside>
+    <heade><strong>Related Content</strong></header>
+    <hr>
+    <ul>
+      
+      
+        <li><a href="../../blog/array_api_v2024_release/">2024 release of the Array API Standard</a> &ndash; 3 minutes
+      
+        <li><a href="../../blog/eoss6_award/">CZI EOSS 6 Award to Advance Array Interoperability within the PyData Ecosystem</a> &ndash; 6 minutes
+      
+        <li><a href="../../blog/array_api_v2023_release/">2023 release of the Array API Standard</a> &ndash; 10 minutes
+      
+        <li><a href="../../blog/array_api_v2022_release/">2022 release of the Array API Standard</a> &ndash; 8 minutes
+      
+        <li><a href="../../blog/array_api_standard_release/">First release of the Array API Standard</a> &ndash; 7 minutes
+      
+        <li><a href="../../blog/announcing_the_consortium/">Announcing the Consortium for Python Data API Standards</a> &ndash; 11 minutes
+      
+        <li><a href="../../blog/dataframe_standard_rfc/">Want to super-charge your library by writing dataframe-agnostic code? We&#39;d love to hear from you</a> &ndash; 5 minutes
+      
+    </ul>
+  </aside>
+
+
+    </div>
+    
+    
+    
+</div>
+</div>
+</main>
+  <footer>   <footer id="footer">
+    <nav>
+      <ul>
+        <li><span>Consortium</span></li>
+        <li>
+          <a href="../../blog/">Blog</a>
+        </li>
+        <li>
+          <a href="https://data-apis.org/array-api/latest/">Array API</a>
+        </li>
+        <li>
+          <a href="https://github.com/data-apis">GitHub</a>
+        </li>
+          <li>
+          <a href="https://github.com/data-apis/governance/blob/main/consortium_governance.md">Governance</a>
+        </li>
+          <li>
+          <a href="https://github.com/data-apis/.github/blob/main/CODE_OF_CONDUCT.md">Code of Conduct</a>
+        </li>
+      </ul>
+    </nav>
+    <p>&copy Consortium Members; Licence MIT.</p>
+  </footer>
+ </footer>
+
+
+  <script src="../../js/kube.js" type="text/javascript">
+  </script>
+  <script src="../../js/kube.legenda.js" type="text/javascript">
+  </script>
+  <script src="../../js/master.js" type="text/javascript">
+  </script>
+</body>
+
+</html>
